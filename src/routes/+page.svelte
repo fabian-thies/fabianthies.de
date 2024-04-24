@@ -24,7 +24,7 @@
                     Hey, <br>
                     ich bin Fabian
                 </h1>
-                <p class="text-lg">Student der Angewandten Informatik</p>
+                <p class="text-lg mt-2">Student der Angewandten Informatik</p>
                 <div class="flex gap-4 mt-6">
                     <button class="btn btn-primary">Finde mehr heraus</button>
                     <button class="btn btn-neutral">Projekte</button>
