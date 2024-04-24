@@ -1,7 +1,10 @@
 <script>
     import "../app.css";
+    import {fade} from 'svelte/transition';
 
     const date = new Date(); // For the Copyright
+
+    export let data;
 </script>
 <header class="navbar fixed top-0 backdrop-blur-md">
     <nav class="navbar-start">
@@ -55,9 +58,12 @@
     </div>
 </header>
 
-<main>
-    <slot/>
-</main>
+
+{#key data.pathname}
+    <div in:fade={{ duration: 300, delay: 400 }} out:fade={{ duration: 300 }}>
+        <slot />
+    </div>
+{/key}
 
 <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded">
     <nav class="grid grid-flow-col gap-4">
