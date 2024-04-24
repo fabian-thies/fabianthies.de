@@ -114,7 +114,7 @@
             </div>
             <div class="flex flex-col gap-4 max-w-[50rem] mx-auto text-center" id="about">
                 <p class="text-2xl">
-                    Hey, ich bin Fabian. Ich bin 21 Jahre alt und mein Ziel ist es, meine Fähigkeiten weiter zu
+                    Hey, ich bin Fabian. Ich bin 21 Jahre alt, studiere Angewandte Informatik und mein Ziel ist es, meine Fähigkeiten weiter zu
                     verbessern und an zukünftigen innovativen Projekten mitzuwirken.
                 </p>
             </div>
