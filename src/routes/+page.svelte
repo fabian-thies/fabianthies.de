@@ -17,26 +17,37 @@
 </script>
 
 <div>
-    <section class="h-screen flex items-center justify-center">
-        <div class="flex justify-center">
-            <div class="flex flex-col">
-                <h1 class="sm:text-6xl text-5xl font-bold">
-                    Hey, <br>
-                    ich bin Fabian
-                </h1>
-                <p class="text-lg mt-2">Student der Angewandten Informatik</p>
-                <div class="flex gap-4 mt-6">
-                    <a href="#about">
-                        <button class="btn btn-primary">Finde mehr heraus</button>
-                    </a>
-                    <a href="/portfolio">
-                        <button class="btn btn-neutral">Projekte</button>
-                    </a>
+    <section class="container mx-auto h-screen flex items-center justify-center">
+        <div class="w-full flex flex-wrap sm:flex-nowrap gap-20 sm:gap-0 justify-around">
+            <div class="flex justify-center">
+                <div class="flex flex-col">
+                    <h1 class="sm:text-6xl text-5xl font-bold">
+                        Hey, <br>
+                        ich bin Fabian
+                    </h1>
+                    <p class="text-lg mt-2">Student der Angewandten Informatik</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#about">
+                            <button class="btn btn-primary">Finde mehr heraus</button>
+                        </a>
+                        <a href="/portfolio">
+                            <button class="btn btn-neutral">Projekte</button>
+                        </a>
+                    </div>
                 </div>
+            </div>
+            <div class="mockup-code">
+                <pre data-prefix="$"><code>npm install coffee</code></pre>
+                <pre data-prefix=">" class="text-warning"><code>installing...</code></pre>
+                <pre data-prefix=">" class="text-success"><code>Done!</code></pre>
+                <pre data-prefix="$"><code>coffee --version</code></pre>
+                <pre data-prefix=">" class="text-success"><code>☕ CoffeeScript version 2.5.1</code></pre>
+                <pre data-prefix="$"><code>echo "Time for a coffee break!"</code></pre>
+                <pre data-prefix=">" class="text-success"><code>Time for a coffee break!</code></pre>
             </div>
         </div>
     </section>
-    <section class="min-h-72 bg-base-300/100 pt-24 pb-24">
+    <section class="min-h-72 bg-base-300/100 pt-24 pb-24 pl-5 pr-5">
         <div class="container mx-auto flex flex-col gap-6">
             <div class="flex justify-center">
                 <p class="uppercase text-md font-bold border-2 inline-block px-4 py-1 rounded-full text-primary border-primary">
@@ -106,34 +117,34 @@
             </div>
         </div>
     </section>
-    <section class="bg-base-300/20 pt-36 pb-36">
+    <section class="bg-base-300/20 pt-36 pb-36 pl-5 pr-5">
         <div class="container mx-auto flex flex-col gap-6">
             <div class="flex justify-center">
                 <p class="uppercase text-md font-bold border-2 inline-block px-4 py-1 rounded-full text-primary border-primary">
                     Über mich</p>
             </div>
             <div class="flex flex-col gap-4 max-w-[50rem] mx-auto text-center" id="about">
-                <p class="text-2xl">
+                <p class="text:lg sm:text-2xl">
                     Hey, ich bin Fabian. Ich bin 21 Jahre alt, studiere Angewandte Informatik und mein Ziel ist es, meine Fähigkeiten weiter zu
                     verbessern und an zukünftigen innovativen Projekten mitzuwirken.
                 </p>
             </div>
         </div>
     </section>
-    <section class="bg-base-300/100 pt-36 pb-36">
+    <section class="bg-base-300/100 pt-36 pb-36 pl-5 pr-5">
         <div class="container mx-auto flex flex-col gap-6">
             <div class="flex justify-center">
                 <p class="uppercase text-md font-bold border-2 inline-block px-4 py-1 rounded-full text-primary border-primary">
                     Technologien</p>
             </div>
             <div class="flex flex-col gap-4 max-w-[50rem] mx-auto text-center" id="about">
-                <p class="text-2xl">
+                <p class="text:lg sm:text-2xl">
                     Ich nutze eine Vielzahl von Technologien, um meine Projekte zu realisieren. Durch mein Studium habe
                     jedoch auch Einblicke in viele weitere Technologien und Sprachen erhalten.
                 </p>
             </div>
             <!-- Icons -->
-            <div class="flex gap-5 mx-auto">
+            <div class="flex flex-wrap justify-center gap-5 mx-auto">
                 <div class="icon-size">
                     {@html icon_django}
                 </div>
@@ -170,5 +181,10 @@
     .icon-size {
         width: 2.5rem;
         object-fit: contain;
+    }
+    @media (max-width: 640px) {
+        .icon-size {
+            width: 1.5rem;
+        }
     }
 </style>

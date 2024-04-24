@@ -6,7 +6,7 @@
 
     export let data;
 </script>
-<header class="navbar fixed top-0 bg-[#00000019] backdrop-blur-md">
+<header class="navbar fixed top-0 bg-[#00000019] backdrop-blur-md z-10">
     <nav class="navbar-start">
         <a class="btn btn-ghost text-xl font-bold m-[-12px] hover:bg-transparent" href="/">
             <svg fill="none" height="23" viewBox="0 0 90 71" width="40" xmlns="http://www.w3.org/2000/svg">
