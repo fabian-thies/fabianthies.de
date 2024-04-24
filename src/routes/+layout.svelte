@@ -50,9 +50,15 @@
                 </svg>
             </div>
             <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 rounded-box">
-                <li><a href="/">Homepage</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/#about">About</a></li>
+                <a href="/">
+                    <li>Homepage</li>
+                </a>
+                <a href="/portfolio">
+                    <li>Portfolio</li>
+                </a>
+                <a href="/#about">
+                    <li>About</li>
+                </a>
             </ul>
         </div>
     </div>
@@ -60,7 +66,7 @@
 
 {#key data.pathname}
     <div in:fade={{ duration: 300, delay: 400 }} out:fade={{ duration: 300 }}>
-        <slot />
+        <slot/>
     </div>
 {/key}
 
