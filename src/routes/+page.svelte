@@ -2,6 +2,8 @@
     import image_portfolio_david_bitterlich from '$lib/images/portfolio/david-bitterlich.jpg';
     import image_portfolio_fsm from '$lib/images/portfolio/fsm.jpg';
     import image_portfolio_ghf from '$lib/images/portfolio/ghf.jpg';
+    import image_foerderverein from '$lib/images/portfolio/fördervereinsgmu.jpg';
+    import image_edudigi from '$lib/images/portfolio/edudigibook.jpg';
 
     import icon_django from '$lib/images/icons/django.svg?raw';
     import icon_docker from '$lib/images/icons/docker.svg?raw';
@@ -37,40 +39,34 @@
                     Portfolio</p>
             </div>
             <div class="flex flex-wrap gap-7 justify-center">
-                <div class="carousel rounded-box object-cover w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
-                    <div class="carousel-item w-full">
-                        <img src="{ image_portfolio_david_bitterlich }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
-                    </div>
-                </div>
                 <div class="carousel rounded-box object-contain w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
                     <div class="carousel-item w-full">
-                        <img src="{ image_portfolio_fsm }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
+                        <img src="{ image_edudigi }" class="w-full object-cover"
+                             alt="E-Commerce Store für digitale Lerninhalte"/>
                     </div>
                 </div>
                 <div class="carousel rounded-box object-contain w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
                     <div class="carousel-item w-full">
                         <img src="{ image_portfolio_ghf }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
+                             alt="Buchungsplatform für Gesundheitsreisen"/>
                     </div>
                 </div>
                 <div class="carousel rounded-box object-cover w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
                     <div class="carousel-item w-full">
                         <img src="{ image_portfolio_david_bitterlich }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
+                             alt="Portfolio für David Bitterlich"/>
                     </div>
                 </div>
                 <div class="carousel rounded-box object-contain w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
                     <div class="carousel-item w-full">
                         <img src="{ image_portfolio_fsm }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
+                             alt="Fragen-Staunen-Mitmachen - Interaktive Lernwebseite für Schüler"/>
                     </div>
                 </div>
                 <div class="carousel rounded-box object-contain w-[20rem] h-[11rem] sm:w-[30rem] sm:h-[17rem]">
                     <div class="carousel-item w-full">
-                        <img src="{ image_portfolio_ghf }" class="w-full object-cover"
-                             alt="Tailwind CSS Carousel component"/>
+                        <img src="{ image_foerderverein }" class="w-full object-cover"
+                             alt="Homepage für den Förderverein des Murnauer Gymnasiums"/>
                     </div>
                 </div>
             </div>

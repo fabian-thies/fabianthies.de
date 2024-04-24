@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="robots" content="noindex">
+</svelte:head>
+
 <div class="sm:container prose mx-auto mt-28 mb-28">
     <h1>Datenschutz&shy;erkl&auml;rung</h1>
     <h2>1. Datenschutz auf einen Blick</h2>
