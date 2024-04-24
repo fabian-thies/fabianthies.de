@@ -42,7 +42,7 @@
     </div>
     <!-- Mobile -->
     <div class="navbar-end md:hidden flex">
-        <div class="dropdown dropdown-end">
+        <div class="dropdown dropdown-end z-20">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
