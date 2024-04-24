@@ -2,7 +2,7 @@
     <meta name="robots" content="noindex">
 </svelte:head>
 
-<div class="sm:container prose mx-auto mt-28 mb-28">
+<div class="sm:container prose mx-auto mt-28 mb-28 pl-5 pr-5">
     <h1>Datenschutz&shy;erkl&auml;rung</h1>
     <h2>1. Datenschutz auf einen Blick</h2>
     <h3>Allgemeine Hinweise</h3>

@@ -2,7 +2,7 @@
     <meta name="robots" content="noindex">
 </svelte:head>
 
-<div class="sm:container prose mx-auto mt-28 mb-28">
+<div class="sm:container prose mx-auto mt-28 mb-28 pl-5 pr-5">
     <h1>Impressum</h1>
 
     <p>Fabian Pascal Thies<br/>
