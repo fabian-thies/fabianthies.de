@@ -23,7 +23,7 @@
         <ul class="menu menu-horizontal px-1 font-bold text-md">
             <li><a href="/">Homepage</a></li>
             <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/#about">About</a></li>
             <label class="swap swap-rotate">
                 <input type="checkbox" class="theme-controller" value="light"/>
 
@@ -52,7 +52,7 @@
             <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 rounded-box">
                 <li><a href="/">Homepage</a></li>
                 <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="/#about">About</a></li>
             </ul>
         </div>
     </div>
