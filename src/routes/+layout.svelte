@@ -21,9 +21,21 @@
     <!-- Desktop -->
     <div class="navbar-end hidden md:flex">
         <ul class="menu menu-horizontal px-1 font-bold text-md">
-            <li><a href="/">Homepage</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/#about">About</a></li>
+            <li>
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/portfolio">
+                    Portfolio
+                </a>
+            </li>
+            <li>
+                <a href="/#about">
+                    About
+                </a>
+            </li>
             <label class="swap swap-rotate">
                 <input type="checkbox" class="theme-controller" value="light"/>
 
@@ -49,16 +61,22 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
                 </svg>
             </div>
-            <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 rounded-box">
-                <a href="/">
-                    <li>Homepage</li>
-                </a>
-                <a href="/portfolio">
-                    <li>Portfolio</li>
-                </a>
-                <a href="/#about">
-                    <li>About</li>
-                </a>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 rounded-box">
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/portfolio">
+                        Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="/#about">
+                        About
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
