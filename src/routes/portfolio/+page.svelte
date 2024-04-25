@@ -7,7 +7,7 @@
 </script>
 
 <section class="bg-base-300/100 pt-24 pb-24">
-    <div class="container mx-auto flex flex-col gap-6 mt-28">
+    <div class="container mx-auto flex flex-col gap-6 mt-12">
         <div class="flex justify-center">
             <p class="uppercase text-md font-bold border-2 inline-block px-4 py-1 rounded-full text-primary border-primary">
                 Portfolio</p>

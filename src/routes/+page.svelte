@@ -18,7 +18,7 @@
 
 <div>
     <section class="container mx-auto h-screen flex items-center justify-center">
-        <div class="w-full flex flex-wrap sm:flex-nowrap gap-20 sm:gap-0 justify-around">
+        <div class="w-full flex flex-wrap md:flex-nowrap gap-20 md:gap-0 justify-around">
             <div class="flex justify-center">
                 <div class="flex flex-col">
                     <h1 class="sm:text-6xl text-5xl font-bold">
