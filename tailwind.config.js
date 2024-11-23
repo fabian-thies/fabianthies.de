@@ -7,7 +7,7 @@ export default {
             colors: {
                 background: {
                     DEFAULT: '#fffbfa',
-                    dark: '#0a0d12',
+                    dark: '#050505',
                 },
                 title: {
                     DEFAULT: '#0a0d12',
