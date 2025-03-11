@@ -11,14 +11,14 @@
     }
 </script>
 
-<header class="p-8 flex w-full justify-between text-title dark:text-title-dark items-center">
+<header class="p-8 flex w-full justify-between text-title dark:text-title-dark items-center z-50 fixed">
     <nav>
         <a href="/">
             <img src={logo} alt="Site Logo">
         </a>
     </nav>
-    <div class="text-2xl flex gap-2 cursor-pointer">
-        <button {onclick} class="flex flex-nowrap">
+    <div class="text-2xl flex gap-2">
+        <button {onclick} class="flex flex-nowrap hover:cursor-pointer">
             <span class="hidden sm:block">
                 menu
             </span>
@@ -36,7 +36,7 @@
                 class="fixed right-0 top-0 h-screen w-full sm:w-[40rem] px-10 flex content-center justify-center items-center bg-background-dark dark:bg-background text-title-dark dark:text-title"
                 transition:fly={{x: 200, duration: 500, easing: quadInOut}}>
             <header class="absolute top-8 right-8">
-                <button {onclick} aria-label="Menü Schließen">
+                <button {onclick} aria-label="Menü Schließen" class="hover:cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18"></path>
