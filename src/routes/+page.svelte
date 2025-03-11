@@ -3,16 +3,15 @@
     import downArrow from '$lib/assets/images/down.svg';
 </script>
 
-<article
-        style="background-image: url({singleSquare});">
+<article>
     <section class="min-h-screen flex items-center text-title dark:text-title-dark relative">
-        <div class="-mt-72 space-y-8 absolute top-1/2 left-30">
-            <h1 class="text-9xl font-bold max-w-6xl">
+        <div class="absolute top-1/2 -translate-y-1/2 -mt-20 left-30">
+            <h1 class="text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
                 Turning ideas into <span
                     class="bg-gradient-to-r from-pink-500  via-red-500 to-yellow-500 bg-clip-text text-transparent font-[garamond] italic"> creative</span>
                 solutions.
             </h1>
-            <p class="text-3xl font-semibold text-gray-300 mt-10">
+            <p class="text-3xl font-semibold text-gray-300 mt-10 font-[ClashGrotesk-light]">
                 Where Imagination Meets Innovation.
             </p>
         </div>

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('/css/clash-grotesk.css');
 
 @custom-variant dark (&:is(.dark *));
 
