@@ -1,4 +1,5 @@
-<script lang="ts">
+<!-- src/lib/components/Nav.svelte -->
+<script lang=\`ts\`>
     import logo from '$lib/assets/images/site-logo.svg';
     import {fly} from 'svelte/transition';
     import {quadInOut} from 'svelte/easing';
@@ -46,7 +47,7 @@
             <section
                     class="relative flex flex-wrap flex-col-reverse sm:flex-row gap-y-16 justify-around w-full -mt-16 ml-6">
                 <div
-                        transition:fly={{x: -200, duration: 500, delay: 400}}>
+                        transition:fly={{x: -200, duration: 500, delay: 300}}>
                     <h3 class="text-xl font-light mb-5">Social</h3>
                     <ul class="text-2xl space-y-2">
                         <li>
@@ -62,7 +63,7 @@
                     </ul>
                 </div>
                 <div
-                        transition:fly={{y: -200, duration: 500, delay: 600}}>
+                        transition:fly={{y: -200, duration: 500, delay: 400}}>
                     <h3 class="text-xl font-light mb-5">Menu</h3>
                     <ul class="text-3xl font-medium space-y-5">
                         <li>
@@ -84,7 +85,7 @@
                 </div>
             </section>
             <footer class="space-y-1 absolute bottom-8 sm:bottom-14 left-10"
-                    transition:fly={{y: 100, duration: 300, delay: 800}}>
+                    transition:fly={{y: 100, duration: 400, delay: 500}}>
                 <h4 class="text-sm text-subtitle">
                     Kontaktiere mich
                 </h4>
