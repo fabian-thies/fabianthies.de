@@ -113,7 +113,7 @@
     });
 </script>
 
-<canvas bind:this={canvas} class="w-full h-full opacity-40"></canvas>
+<canvas bind:this={canvas} class="w-full h-full opacity-30"></canvas>
 
 <style>
     canvas {
