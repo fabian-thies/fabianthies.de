@@ -1,10 +1,11 @@
 <script lang="ts">
-    import singleSquare from '$lib/assets/images/square.svg';
     import downArrow from '$lib/assets/images/down.svg';
+    import Shader from "$lib/components/Shader.svelte";
 </script>
 
 <article>
     <section class="min-h-screen flex items-center text-title dark:text-title-dark relative">
+        <Shader/>
         <div class="absolute top-1/2 -translate-y-1/2 -mt-20 left-30">
             <h1 class="text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
                 Turning ideas into <span
