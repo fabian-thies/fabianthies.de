@@ -1,9 +1,9 @@
 <script lang="ts">
     import downArrow from '$lib/assets/images/down.svg';
     import Shader from "$lib/components/Shader.svelte";
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-    import { onMount } from "svelte";
+    import {gsap} from "gsap";
+    import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+    import {onMount} from "svelte";
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +29,32 @@
                 scrub: true
             }
         });
+
+        gsap.fromTo(".menu-icon",
+            {color: "#ffffff"},
+            {
+                color: "#0a0d12",
+                scrollTrigger: {
+                    trigger: "#home",
+                    start: "50% top",
+                    end: "80% top",
+                    scrub: true
+                }
+            }
+        );
+
+        gsap.fromTo(".menu-text",
+            {color: "#ffffff"},
+            {
+                color: "#0a0d12",
+                scrollTrigger: {
+                    trigger: "#home",
+                    start: "50% top",
+                    end: "80% top",
+                    scrub: true
+                }
+            }
+        );
     });
 </script>
 
