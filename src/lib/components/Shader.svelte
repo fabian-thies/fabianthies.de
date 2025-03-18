@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
+
     let canvas: HTMLCanvasElement;
 
     onMount(() => {
@@ -75,10 +76,10 @@
         const positions = new Float32Array([
             -1, -1,
             1, -1,
-            -1,  1,
-            -1,  1,
+            -1, 1,
+            -1, 1,
             1, -1,
-            1,  1,
+            1, 1,
         ]);
         gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
 
@@ -109,14 +110,9 @@
             gl.drawArrays(gl.TRIANGLES, 0, 6);
             requestAnimationFrame(render);
         }
+
         requestAnimationFrame(render);
     });
 </script>
 
-<canvas bind:this={canvas} class="w-full h-full opacity-30"></canvas>
-
-<style>
-    canvas {
-        display: block;
-    }
-</style>
+<canvas bind:this={canvas} class="w-full h-screen opacity-30"></canvas>
