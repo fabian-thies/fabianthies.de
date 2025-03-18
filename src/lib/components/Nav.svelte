@@ -30,7 +30,16 @@
         </button>
     </div>
     {#if showMenu}
-        <aside class="fixed right-0 top-0 h-screen w-full sm:w-[40rem] px-10 flex content-center justify-center items-center bg-background-dark dark:bg-background text-title-dark dark:text-title"
+        <div
+                class="fixed inset-0 bg-black opacity-45 z-40"
+                transition:fly={{ opacity: 0, duration: 300 }}
+                on:click={onclick}
+                on:keydown={(e) => e.key === 'Escape' && onclick()}
+                role="button"
+                tabindex="0"
+                aria-label="Close menu"
+        ></div>
+        <aside class="fixed right-0 top-0 h-screen w-full sm:w-[40rem] px-10 flex content-center justify-center items-center bg-background-dark dark:bg-background text-title-dark dark:text-title z-50"
                transition:fly={{ x: 200, duration: 500, easing: quadInOut }}>
             <header class="absolute top-8 right-8">
                 <button on:click={onclick} aria-label="Close Menu" class="hover:cursor-pointer">
