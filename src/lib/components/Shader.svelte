@@ -45,6 +45,8 @@
 
         function compileShader(source: string, type: number) {
             const shader = gl.createShader(type);
+            if (!shader) return null;
+
             gl.shaderSource(shader, source);
             gl.compileShader(shader);
             if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
@@ -60,6 +62,8 @@
         if (!vertexShader || !fragmentShader) return;
 
         const program = gl.createProgram();
+        if (!program) return;
+
         gl.attachShader(program, vertexShader);
         gl.attachShader(program, fragmentShader);
         gl.linkProgram(program);
@@ -90,19 +94,23 @@
         const iTimeLocation = gl.getUniformLocation(program, 'iTime');
 
         function resize() {
-            const displayWidth = canvas.clientWidth;
-            const displayHeight = canvas.clientHeight;
-            if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-                canvas.width = displayWidth;
-                canvas.height = displayHeight;
-                gl.viewport(0, 0, canvas.width, canvas.height);
-            }
+            const displayWidth = window.innerWidth;
+            const displayHeight = window.innerHeight;
+
+            canvas.width = displayWidth;
+            canvas.height = displayHeight;
+            gl.viewport(0, 0, displayWidth, displayHeight);
         }
+
+        // Initialer Resize
+        resize();
+
+        // Event-Listener für Größenänderungen hinzufügen
+        window.addEventListener('resize', resize);
 
         const startTime = Date.now();
 
         function render() {
-            resize();
             const currentTime = Date.now();
             const time = (currentTime - startTime) / 1000;
             gl.uniform2f(iResolutionLocation, canvas.width, canvas.height);
@@ -112,7 +120,11 @@
         }
 
         requestAnimationFrame(render);
+
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
     });
 </script>
 
-<canvas bind:this={canvas} class="w-full h-screen opacity-30"></canvas>
+<canvas bind:this={canvas} class="w-full h-screen opacity-30 fixed top-0 left-0"></canvas>

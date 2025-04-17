@@ -1,66 +1,52 @@
 <script lang="ts">
     import downArrow from '$lib/assets/images/down.svg';
     import Shader from "$lib/components/Shader.svelte";
-    import {gsap} from "gsap";
-    import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
     import {onMount} from "svelte";
-
-    gsap.registerPlugin(ScrollTrigger);
+    import {animate, onScroll} from 'animejs';
 
     onMount(() => {
-        gsap.to("#home", {
-            backgroundColor: "white",
-            ease: "none",
-            scrollTrigger: {
-                trigger: "#home",
-                start: "50% top",
-                end: "80% top",
-                scrub: true
-            }
+        animate('#background-layer', {
+            backgroundColor: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
+            ease: 'linear',
+            autoplay: onScroll({
+                target: '#home',
+                enter: '30% 60%',
+                leave: '40% 100%',
+                sync: true,
+                debug: true,
+            })
         });
 
-        gsap.to("#next-section", {
-            backgroundColor: "white",
-            ease: "none",
-            scrollTrigger: {
-                trigger: "#home",
-                start: "50% top",
-                end: "80% top",
-                scrub: true
-            }
+        animate('#next-section', {
+            backgroundColor: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
+            ease: 'linear',
+            autoplay: onScroll({
+                target: '#home',
+                enter: '30% 60%',
+                leave: '40% 100%',
+                sync: true,
+                debug: true,
+            })
         });
 
-        gsap.fromTo(".menu-icon",
-            {color: "#ffffff"},
-            {
-                color: "#0a0d12",
-                scrollTrigger: {
-                    trigger: "#home",
-                    start: "50% top",
-                    end: "80% top",
-                    scrub: true
-                }
-            }
-        );
-
-        gsap.fromTo(".menu-text",
-            {color: "#ffffff"},
-            {
-                color: "#0a0d12",
-                scrollTrigger: {
-                    trigger: "#home",
-                    start: "50% top",
-                    end: "80% top",
-                    scrub: true
-                }
-            }
-        );
+        animate(['.menu-text', '.menu-icon'], {
+            color: ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)'],
+            ease: 'linear',
+            autoplay: onScroll({
+                target: '#home',
+                enter: '30% 60%',
+                leave: '40% 100%',
+                sync: true,
+                debug: true,
+            })
+        });
     });
 </script>
 
 <article>
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center text-title dark:text-title-dark relative">
+        <div id="background-layer" class="absolute inset-0 z-0"></div>
         <Shader/>
         <div class="absolute top-1/2 transform -translate-y-1/2 -mt-20 left-30">
             <h1 class="text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
