@@ -29,7 +29,6 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-node": "^5.2.9",
-    "gsap": "^3.12.7",
-    "motion": "^11.11.17"
+    "animejs": "^4.0.1"
   }
 }
