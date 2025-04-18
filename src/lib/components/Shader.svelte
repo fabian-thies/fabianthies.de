@@ -3,12 +3,21 @@
 
     let canvas: HTMLCanvasElement;
 
+    // Helper function to detect mobile devices
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               window.innerWidth < 768;
+    }
+
     onMount(() => {
         const gl = canvas.getContext('webgl');
         if (!gl) {
             console.error('WebGL is not supported.');
             return;
         }
+
+        // Detect if we're on a mobile device
+        const isMobile = isMobileDevice();
 
         const vertexShaderSource = `
       attribute vec2 a_position;
@@ -17,7 +26,35 @@
       }
     `;
 
-        const fragmentShaderSource = `
+        // Choose between high quality (desktop) and optimized (mobile) shader
+        const fragmentShaderSource = isMobile ? 
+        // Mobile-optimized shader
+        `
+      precision lowp float;
+      uniform vec2 iResolution;
+      uniform float iTime;
+
+      // Simplified version for mobile devices
+      void main() {
+        vec2 uv = gl_FragCoord.xy / iResolution.xy;
+
+        // Simplified calculation with fewer expensive operations
+        float t = iTime * 0.5;
+
+        // Pre-calculate values to avoid redundant calculations
+        float sinTime = sin(t);
+        float cosTime = cos(t);
+
+        // Simplified color calculation with unrolled loop and fewer expensive operations
+        float r = 0.8 + 0.2 * sin(uv.x + cosTime);
+        float g = 0.8 + 0.2 * sin(uv.y + sinTime);
+        float b = 0.8 + 0.2 * sin((uv.x + uv.y) * 0.5 + t);
+
+        gl_FragColor = vec4(r, g, b, 1.0);
+      }
+    ` :
+        // Desktop high-quality shader
+        `
       precision mediump float;
       uniform vec2 iResolution;
       uniform float iTime;
@@ -97,34 +134,64 @@
             const displayWidth = window.innerWidth;
             const displayHeight = window.innerHeight;
 
-            canvas.width = displayWidth;
-            canvas.height = displayHeight;
-            gl.viewport(0, 0, displayWidth, displayHeight);
+            // Scale down resolution for mobile devices
+            const scaleFactor = isMobile ? 0.5 : 1.0; // 50% resolution for mobile
+
+            const targetWidth = Math.floor(displayWidth * scaleFactor);
+            const targetHeight = Math.floor(displayHeight * scaleFactor);
+
+            // Set canvas size to display size for proper rendering
+            canvas.width = targetWidth;
+            canvas.height = targetHeight;
+
+            // Set CSS size to full display size for proper layout
+            canvas.style.width = displayWidth + 'px';
+            canvas.style.height = displayHeight + 'px';
+
+            gl.viewport(0, 0, targetWidth, targetHeight);
         }
 
         // Initialer Resize
         resize();
 
-        // Event-Listener für Größenänderungen hinzufügen
         window.addEventListener('resize', resize);
 
         const startTime = Date.now();
+        let lastFrameTime = 0;
+        let animationFrameId: number;
 
-        function render() {
-            const currentTime = Date.now();
-            const time = (currentTime - startTime) / 1000;
-            gl.uniform2f(iResolutionLocation, canvas.width, canvas.height);
-            gl.uniform1f(iTimeLocation, time);
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-            requestAnimationFrame(render);
+        // Frame rate control
+        const targetFPS = isMobile ? 30 : 60; // Lower FPS for mobile
+        const frameInterval = 1000 / targetFPS;
+
+        function render(currentTimestamp: number) {
+            // Skip frames to achieve target FPS
+            const elapsed = currentTimestamp - lastFrameTime;
+
+            if (elapsed > frameInterval || !isMobile) { // Always render on desktop, limit on mobile
+                lastFrameTime = currentTimestamp;
+
+                const currentTime = Date.now();
+                const time = (currentTime - startTime) / 1000;
+
+                gl.uniform2f(iResolutionLocation, canvas.width, canvas.height);
+                gl.uniform1f(iTimeLocation, time);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+
+            animationFrameId = requestAnimationFrame(render);
         }
 
-        requestAnimationFrame(render);
+        animationFrameId = requestAnimationFrame(render);
 
         return () => {
             window.removeEventListener('resize', resize);
+            // Cancel animation frame on cleanup to prevent memory leaks
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
         };
     });
 </script>
 
-<canvas bind:this={canvas} class="w-full h-screen opacity-30 fixed top-0 left-0"></canvas>
+<canvas bind:this={canvas} class="w-full h-screen opacity-30 fixed z-[-1]"></canvas>
