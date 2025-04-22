@@ -2,10 +2,61 @@
 <html lang="de" class="dark">
 <head>
     <meta charset="utf-8"/>
-    <link rel="icon" href="%sveltekit.assets%/favicon.png"/>
+    <link rel="icon" href="%sveltekit.assets%/images/favicon/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/images/favicon/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/images/favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/images/favicon/favicon-16x16.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="preload" href="%sveltekit.assets%/css/clash-grotesk.css" as="style"/>
+    <meta name="description"
+          content="Portfolio von Fabian Thies - Student der Angewandten Informatik und Werkstudent im Bereich Research & Development. Spezialisiert auf Web-Entwicklung, CI/CD Automatisierung und innovative Technologien."/>
+    <meta name="keywords"
+          content="Fabian Thies, Portfolio, Web-Entwicklung, Svelte, TailwindCSS, Docker, CI/CD, Research & Development, Innovation, Angewandte Informatik"/>
+    <meta name="author" content="Fabian Thies"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="https://fabianthies.de"/>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://fabianthies.de"/>
+    <meta property="og:title" content="Portfolio | Fabian Thies"/>
+    <meta property="og:description"
+          content="Portfolio von Fabian Thies - Student der Angewandten Informatik und Werkstudent im Bereich Research & Development. Spezialisiert auf Web-Entwicklung, CI/CD Automatisierung und innovative Technologien."/>
+    <meta property="og:image" content="%sveltekit.assets%/images/og-image.png"/>
+
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://fabianthies.de"/>
+    <meta property="twitter:title" content="Portfolio | Fabian Thies"/>
+    <meta property="twitter:description"
+          content="Portfolio von Fabian Thies - Student der Angewandten Informatik und Werkstudent im Bereich Research & Development. Spezialisiert auf Web-Entwicklung, CI/CD Automatisierung und innovative Technologien."/>
+    <meta property="twitter:image" content="%sveltekit.assets%/images/og-image.png"/>
+
     <title>Portfolio | Fabian Thies</title>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Fabian Thies",
+            "url": "https://fabianthies.de",
+            "jobTitle": "Student der Angewandten Informatik, Werkstudent im Bereich Research & Development",
+            "sameAs": [
+                "https://www.linkedin.com/in/fabian-thies-63026331b/",
+                "https://github.com/fabian-thies"
+            ],
+            "knowsAbout": [
+                "Web-Entwicklung",
+                "CI/CD Automatisierung",
+                "Docker",
+                "Research & Development",
+                "Innovation",
+                "Svelte",
+                "TailwindCSS"
+            ],
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://fabianthies.de"
+            }
+        }
+    </script>
     %sveltekit.head%
 </head>
 <body data-sveltekit-preload-data="hover" class="bg-background dark:bg-background-dark">

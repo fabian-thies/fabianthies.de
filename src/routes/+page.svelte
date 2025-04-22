@@ -129,7 +129,7 @@
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                                <enhanced:img src={heideKuester} alt="Project 1"/>
+                                <enhanced:img loading="lazy" src={heideKuester} alt="Project 1"/>
                             </span>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                                <enhanced:img src={gesundheitsreisen} alt="Project 1"/>
+                                <enhanced:img loading="lazy" src={gesundheitsreisen} alt="Project 1"/>
                             </span>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                                <enhanced:img src={davidBitterlich} alt="Project 1"/>
+                                <enhanced:img loading="lazy" src={davidBitterlich} alt="Project 1"/>
                             </span>
                         </div>
                     </div>
