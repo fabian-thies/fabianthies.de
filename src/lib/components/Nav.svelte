@@ -19,7 +19,7 @@
     <div class="text-2xl flex gap-2">
         <button on:click={onclick} class="flex flex-nowrap hover:cursor-pointer">
             <span class="menu-text hidden sm:block">
-                menu
+                menü
             </span>
             <svg class="menu-icon pt-1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                  fill="none"
@@ -53,7 +53,7 @@
             <section
                     class="relative flex flex-wrap flex-col-reverse sm:flex-row gap-y-16 justify-around w-full -mt-16 ml-6">
                 <div transition:fly={{ x: -200, duration: 500, delay: 300 }}>
-                    <h3 class="text-xl font-light mb-5">Social</h3>
+                    <h3 class="text-xl font-light mb-5">Soziale Medien</h3>
                     <ul class="text-2xl space-y-2">
                         <li>
                             <a href="https://www.linkedin.com/in/fabian-thies-63026331b/">
@@ -68,7 +68,7 @@
                     </ul>
                 </div>
                 <div transition:fly={{ y: -200, duration: 500, delay: 400 }}>
-                    <h3 class="text-xl font-light mb-5">Menu</h3>
+                    <h3 class="text-xl font-light mb-5">Menü</h3>
                     <ul class="text-3xl font-medium space-y-5">
                         <li>
                             <a href="/about">
