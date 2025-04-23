@@ -5,7 +5,7 @@
 
     let showMenu = false;
 
-    function onclick() {
+    function toggleMenu() {
         showMenu = !showMenu;
     }
 </script>
@@ -17,7 +17,7 @@
         </a>
     </nav>
     <div class="text-2xl flex gap-2">
-        <button on:click={onclick} class="flex flex-nowrap hover:cursor-pointer" aria-label="Menü öffnen">
+        <button on:click={toggleMenu} class="flex flex-nowrap hover:cursor-pointer" aria-label="Menü öffnen">
             <span class="menu-text hidden sm:block">
                 menü
             </span>
@@ -33,8 +33,8 @@
         <div
                 class="fixed inset-0 bg-black opacity-45 z-40"
                 transition:fly={{ opacity: 0, duration: 300 }}
-                on:click={onclick}
-                on:keydown={(e) => e.key === 'Escape' && onclick()}
+                on:click={toggleMenu}
+                on:keydown={(e) => e.key === 'Escape' && toggleMenu()}
                 role="button"
                 tabindex="0"
                 aria-label="Close menu"
@@ -42,7 +42,7 @@
         <aside class="fixed right-0 top-0 h-screen w-full sm:w-[40rem] px-10 flex content-center justify-center items-center bg-background-dark dark:bg-background text-title-dark dark:text-title z-50"
                transition:fly={{ x: 200, duration: 500, easing: quadInOut }}>
             <header class="absolute top-8 right-8">
-                <button on:click={onclick} aria-label="Close Menu" class="hover:cursor-pointer">
+                <button on:click={toggleMenu} aria-label="Close Menu" class="hover:cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18"></path>
@@ -71,17 +71,17 @@
                     <h3 class="text-xl font-light mb-5">Menü</h3>
                     <ul class="text-3xl font-medium space-y-5">
                         <li>
-                            <a href="/about">
+                            <a href="#about" on:click={toggleMenu}>
                                 Über mich
                             </a>
                         </li>
                         <li>
-                            <a href="/portfolio">
+                            <a href="#portfolio" on:click={toggleMenu}>
                                 Portfolio
                             </a>
                         </li>
                         <li>
-                            <a href="/contact">
+                            <a href="#contact" on:click={toggleMenu}>
                                 Kontakt
                             </a>
                         </li>
