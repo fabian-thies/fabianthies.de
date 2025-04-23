@@ -17,9 +17,9 @@
             ease: 'linear',
             autoplay: onScroll({
                 target: '#home',
-                enter: '30% 60%',
+                enter: '40% 60%',
                 leave: '40% 100%',
-                sync: true,
+                sync: 0.35,
             })
         });
 
@@ -28,9 +28,9 @@
             ease: 'linear',
             autoplay: onScroll({
                 target: '#home',
-                enter: '30% 60%',
+                enter: '40% 60%',
                 leave: '40% 100%',
-                sync: true,
+                sync: 0.35,
             })
         });
 
@@ -41,7 +41,7 @@
                 target: '#home',
                 enter: '30% 60%',
                 leave: '40% 100%',
-                sync: true,
+                sync: 0.35,
             })
         });
     });
