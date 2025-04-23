@@ -20,7 +20,6 @@
                 enter: '30% 60%',
                 leave: '40% 100%',
                 sync: true,
-                debug: true,
             })
         });
 
@@ -32,7 +31,6 @@
                 enter: '30% 60%',
                 leave: '40% 100%',
                 sync: true,
-                debug: true,
             })
         });
 
@@ -44,7 +42,6 @@
                 enter: '30% 60%',
                 leave: '40% 100%',
                 sync: true,
-                debug: true,
             })
         });
     });
@@ -114,10 +111,10 @@
              class="min-h-screen py-20 flex items-center justify-center relative z-10 bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16">
             <div class="text-center mb-16">
-                <h2 class="font-[ClashGrotesk-Medium] text-2xl text-gray-600">Meine Arbeit</h2>
-                <h1 class="font-[ClashGrotesk-Semibold] text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
+                <p class="font-[ClashGrotesk-Medium] text-2xl text-gray-600">Meine Arbeit</p>
+                <h2 class="font-[ClashGrotesk-Semibold] text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
                     Ausgewählte Projekte
-                </h1>
+                </h2>
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 max-w-3xl mx-auto mt-6">
                     Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren.
                 </p>
@@ -202,10 +199,10 @@
 
     <section id="contact" class="relative">
         <div class="w-full h-[40rem] flex flex-col justify-center items-center bg-white text-black">
-            <h2 class="font-[ClashGrotesk-Medium] text-2xl text-gray-600 px-4 text-center">Lust auf Zusammenarbeit?</h2>
-            <h1 class="font-[ClashGrotesk-Semibold] text-7xl text-center px-4 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
+            <p class="font-[ClashGrotesk-Medium] text-2xl text-gray-600 px-4 text-center">Lust auf Zusammenarbeit?</p>
+            <h2 class="font-[ClashGrotesk-Semibold] text-7xl text-center px-4 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
                 Lass uns in Kontakt treten!
-            </h1>
+            </h2>
             <div class="flex flex-row gap-x-6 items-center mt-[14vh]">
                 <a href="mailto:kontakt@fabianthies.de"
                    class="flex gap-x-2 rounded-full border-2 border-[#ff6600]/40 px-2 py-1 hover:bg-[#ff6600]/10 transition-colors">

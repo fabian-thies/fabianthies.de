@@ -17,7 +17,7 @@
         </a>
     </nav>
     <div class="text-2xl flex gap-2">
-        <button on:click={onclick} class="flex flex-nowrap hover:cursor-pointer">
+        <button on:click={onclick} class="flex flex-nowrap hover:cursor-pointer" aria-label="Menü öffnen">
             <span class="menu-text hidden sm:block">
                 menü
             </span>
