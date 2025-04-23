@@ -11,6 +11,8 @@
     import foerdervereinMurnauer from '$lib/assets/images/portfolio/foerderverein-murnauer-gymnasium.jpg?enhanced';
     import fsm from '$lib/assets/images/portfolio/fsm.jpg?enhanced';
 
+    import TypeWriter from "$lib/components/TypeWriter.svelte";
+
     onMount(() => {
         animate('#background-layer', {
             backgroundColor: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
@@ -53,30 +55,33 @@
         <div id="background-layer" class="absolute inset-0 z-0"></div>
         <Shader/>
         <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
-            <div class="md:ml-10 lg:ml-20">
-                <h1 class="text-5xl md:text-7xl lg:text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
+            <div class="text-center md:text-left md:ml-10 lg:ml-20">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold] leading-tight">
                     Ideen in
                     <span class="bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent font-[garamond] italic">
                         kreative
                     </span>
                     Lösungen verwandeln.
                 </h1>
-                <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 mt-6 md:mt-10 font-[ClashGrotesk-light]">
-                    Wo Vorstellungskraft auf Innovation trifft.
+                <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 mt-4 md:mt-10 font-[ClashGrotesk-light]">
+                    <TypeWriter
+                        text="Wo Vorstellungskraft auf Innovation trifft."
+                        speed={50}
+                        loop={true}></TypeWriter>
                 </p>
             </div>
         </div>
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+        <div class="absolute bottom-6 md:bottom-10 left-0 right-0 flex justify-center">
             <img src={downArrow} alt="down arrow" class="w-8 md:w-10 h-8 md:h-10 animate-bounce"/>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="min-h-screen flex items-center justify-center relative z-10 bg-white text-black">
-        <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-12">
-            <div class="w-full md:w-1/2 space-y-6">
-                <h2 class="font-[ClashGrotesk-Medium] text-2xl text-gray-600">Über mich</h2>
-                <h1 class="font-[ClashGrotesk-Semibold] text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
+    <section id="about" class="min-h-screen flex items-center justify-center py-24 md:py-0 relative z-10 bg-white text-black">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
+                <h2 class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">Über mich</h2>
+                <h1 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight">
                     Innovation durch Informatik
                 </h1>
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
@@ -108,14 +113,14 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio"
-             class="min-h-screen py-20 flex items-center justify-center relative z-10 bg-white text-black">
+             class="min-h-screen py-16 md:py-20 flex items-center justify-center relative z-10 bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16">
-            <div class="text-center mb-16">
-                <p class="font-[ClashGrotesk-Medium] text-2xl text-gray-600">Meine Arbeit</p>
-                <h2 class="font-[ClashGrotesk-Semibold] text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
+            <div class="text-center mb-10 md:mb-16">
+                <p class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">Meine Arbeit</p>
+                <h2 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight">
                     Ausgewählte Projekte
                 </h2>
-                <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 max-w-3xl mx-auto mt-6">
+                <p class="font-[ClashGrotesk-Regular] text-base md:text-lg text-gray-800 max-w-3xl mx-auto mt-4 md:mt-6 px-2">
                     Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren.
                 </p>
             </div>
@@ -198,12 +203,12 @@
     </section>
 
     <section id="contact" class="relative">
-        <div class="w-full h-[40rem] flex flex-col justify-center items-center bg-white text-black">
-            <p class="font-[ClashGrotesk-Medium] text-2xl text-gray-600 px-4 text-center">Lust auf Zusammenarbeit?</p>
-            <h2 class="font-[ClashGrotesk-Semibold] text-7xl text-center px-4 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent">
+        <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black">
+            <p class="font-[ClashGrotesk-Medium] text-xl sm:text-2xl text-gray-600 px-4 text-center">Lust auf Zusammenarbeit?</p>
+            <h2 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center px-4 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight mb-4 sm:mb-0">
                 Lass uns in Kontakt treten!
             </h2>
-            <div class="flex flex-row gap-x-6 items-center mt-[14vh]">
+            <div class="flex flex-row gap-x-2 md:gap-x-6 items-center mt-[14vh]">
                 <a href="mailto:kontakt@fabianthies.de"
                    class="flex gap-x-2 rounded-full border-2 border-[#ff6600]/40 px-2 py-1 hover:bg-[#ff6600]/10 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

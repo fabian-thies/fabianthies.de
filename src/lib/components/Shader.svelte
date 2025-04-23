@@ -5,8 +5,8 @@
 
     // Helper function to detect mobile devices
     function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-               window.innerWidth < 768;
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            window.innerWidth < 768;
     }
 
     onMount(() => {
@@ -27,58 +27,31 @@
     `;
 
         // Choose between high quality (desktop) and optimized (mobile) shader
-        const fragmentShaderSource = isMobile ? 
-        // Mobile-optimized shader
-        `
-      precision lowp float;
-      uniform vec2 iResolution;
-      uniform float iTime;
+        const fragmentShaderSource = `
+            precision mediump float;
+            uniform vec2 iResolution;
+            uniform float iTime;
 
-      // Simplified version for mobile devices
-      void main() {
-        vec2 uv = gl_FragCoord.xy / iResolution.xy;
+            // ShaderToy mainImage function adapted to standard GLSL.
+            void mainImage(out vec4 o, vec2 fragCoord) {
+            vec2 v = fragCoord;
+            vec2 u = (v + v - (o.xy = iResolution.xy)) / o.y;
+            u /= 0.5 + 0.2 * dot(u, u);
+            u += 0.2 * cos(iTime) - 7.56;
 
-        // Simplified calculation with fewer expensive operations
-        float t = iTime * 0.5;
+            // Loop over color channels.
+            for (int i = 0; i < 3; i++) {
+              o[i] = 1.0 - exp(-6.0 / exp(6.0 * length(v + sin(5.0 * v.y - 3.0 * iTime) / 4.0)));
+              v = sin(1.5 * u.yx + 2.0 * cos(u -= 0.01));
+            }
+            }
 
-        // Pre-calculate values to avoid redundant calculations
-        float sinTime = sin(t);
-        float cosTime = cos(t);
-
-        // Simplified color calculation with unrolled loop and fewer expensive operations
-        float r = 0.8 + 0.2 * sin(uv.x + cosTime);
-        float g = 0.8 + 0.2 * sin(uv.y + sinTime);
-        float b = 0.8 + 0.2 * sin((uv.x + uv.y) * 0.5 + t);
-
-        gl_FragColor = vec4(r, g, b, 1.0);
-      }
-    ` :
-        // Desktop high-quality shader
-        `
-      precision mediump float;
-      uniform vec2 iResolution;
-      uniform float iTime;
-
-      // ShaderToy mainImage function adapted to standard GLSL.
-      void mainImage(out vec4 o, vec2 fragCoord) {
-        vec2 v = fragCoord;
-        vec2 u = (v + v - (o.xy = iResolution.xy)) / o.y;
-        u /= 0.5 + 0.2 * dot(u, u);
-        u += 0.2 * cos(iTime) - 7.56;
-
-        // Loop over color channels.
-        for (int i = 0; i < 3; i++) {
-          o[i] = 1.0 - exp(-6.0 / exp(6.0 * length(v + sin(5.0 * v.y - 3.0 * iTime) / 4.0)));
-          v = sin(1.5 * u.yx + 2.0 * cos(u -= 0.01));
-        }
-      }
-
-      void main() {
-        vec4 color;
-        mainImage(color, gl_FragCoord.xy);
-        gl_FragColor = color;
-      }
-    `;
+            void main() {
+            vec4 color;
+            mainImage(color, gl_FragCoord.xy);
+            gl_FragColor = color;
+            }
+        `;
 
         function compileShader(source: string, type: number) {
             const shader = gl.createShader(type);
