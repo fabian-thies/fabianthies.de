@@ -2,7 +2,24 @@
     <meta name="robots" content="noindex">
 </svelte:head>
 
-<div class="bg-white h-full">
+<script>
+    import {onMount} from "svelte";
+
+    onMount(() => {
+        const menuText = document.querySelectorAll('.menu-text');
+        const menuIcon = document.querySelectorAll('.menu-icon');
+
+        menuText.forEach((text) => {
+            text.classList.add('text-black');
+        });
+
+        menuIcon.forEach((text) => {
+            text.classList.add('text-black');
+        });
+    });
+</script>
+
+<div class="bg-white h-screen">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
         <h1>Impressum</h1>
 
@@ -12,7 +29,7 @@
 
         <h2>Kontakt</h2>
         <p>Telefon: +49 172 2175619<br/>
-            E-Mail: fabian.thies@gmx.de</p>
+            E-Mail: kontakt@fabianthies.de</p>
 
         <p>
             Aufgrund des Kleinunternehmerstatus gem. § 19 UStG erheben wir keine Umsatzsteuer und weisen diese daher

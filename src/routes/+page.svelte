@@ -10,7 +10,7 @@
     import edudigibook from '$lib/assets/images/portfolio/edudigibook.jpg?enhanced';
     import foerdervereinMurnauer from '$lib/assets/images/portfolio/foerderverein-murnauer-gymnasium.jpg?enhanced';
     import fsm from '$lib/assets/images/portfolio/fsm.jpg?enhanced';
-    
+
     import TypeWriter from "$lib/components/TypeWriter.svelte";
 
     onMount(() => {

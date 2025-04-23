@@ -2,6 +2,23 @@
     <meta name="robots" content="noindex">
 </svelte:head>
 
+<script>
+    import {onMount} from "svelte";
+
+    onMount(() => {
+        const menuText = document.querySelectorAll('.menu-text');
+        const menuIcon = document.querySelectorAll('.menu-icon');
+
+        menuText.forEach((text) => {
+            text.classList.add('text-black');
+        });
+
+        menuIcon.forEach((text) => {
+            text.classList.add('text-black');
+        });
+    });
+</script>
+
 <div class="bg-white h-full">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
         <h1>Datenschutz&shy;erkl&auml;rung</h1>
