@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import url('/css/clash-grotesk.css');
 
+@plugin '@tailwindcss/typography';
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {

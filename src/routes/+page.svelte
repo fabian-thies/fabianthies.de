@@ -10,7 +10,7 @@
     import edudigibook from '$lib/assets/images/portfolio/edudigibook.jpg?enhanced';
     import foerdervereinMurnauer from '$lib/assets/images/portfolio/foerderverein-murnauer-gymnasium.jpg?enhanced';
     import fsm from '$lib/assets/images/portfolio/fsm.jpg?enhanced';
-
+    
     import TypeWriter from "$lib/components/TypeWriter.svelte";
 
     onMount(() => {
@@ -56,7 +56,7 @@
         <Shader/>
         <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
             <div class="text-center md:text-left md:ml-10 lg:ml-20">
-                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold] leading-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
                     Ideen in
                     <span class="bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent font-[garamond] italic">
                         kreative
@@ -65,9 +65,9 @@
                 </h1>
                 <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 mt-4 md:mt-10 font-[ClashGrotesk-light]">
                     <TypeWriter
-                        text="Wo Vorstellungskraft auf Innovation trifft."
-                        speed={50}
-                        loop={true}></TypeWriter>
+                            text="Wo Vorstellungskraft auf Innovation trifft."
+                            speed={50}
+                            loop={true}></TypeWriter>
                 </p>
             </div>
         </div>
@@ -77,7 +77,8 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="min-h-screen flex items-center justify-center py-24 md:py-0 relative z-10 bg-white text-black">
+    <section id="about"
+             class="min-h-screen flex items-center justify-center py-24 md:py-0 relative z-10 bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <h2 class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">Über mich</h2>
@@ -85,12 +86,16 @@
                     Innovation durch Informatik
                 </h1>
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
-                    Ich bin ein 22-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative Technologien. Als Werkstudent im Bereich
-                    <span class="font-[ClashGrotesk-Medium] text-[#ff6600]">Research & Development</span> sammle ich wertvolle
+                    Ich bin ein 22-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative
+                    Technologien. Als Werkstudent im Bereich
+                    <span class="font-[ClashGrotesk-Medium] text-[#ff6600]">Research & Development</span> sammle ich
+                    wertvolle
                     <span class="font-[ClashGrotesk-Medium] text-[#ff6600]">praktische Erfahrung</span>.
                 </p>
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
-                    Durch meine Erfahrung in der Web-Entwicklung verbinde ich theoretisches Wissen mit praktischer Anwendung. Mein Ziel ist es, mich stetig weiterzuentwickeln und an zukunftsweisenden, innovativen Projekten mitzuwirken.
+                    Durch meine Erfahrung in der Web-Entwicklung verbinde ich theoretisches Wissen mit praktischer
+                    Anwendung. Mein Ziel ist es, mich stetig weiterzuentwickeln und an zukunftsweisenden, innovativen
+                    Projekten mitzuwirken.
                 </p>
                 <div class="pt-4 flex flex-wrap gap-3">
                     <span class="px-4 py-2 rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">Web-Entwicklung</span>
@@ -121,7 +126,8 @@
                     Ausgewählte Projekte
                 </h2>
                 <p class="font-[ClashGrotesk-Regular] text-base md:text-lg text-gray-800 max-w-3xl mx-auto mt-4 md:mt-6 px-2">
-                    Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren.
+                    Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives
+                    Programmieren.
                 </p>
             </div>
 
@@ -138,7 +144,8 @@
                     <div class="p-6 flex-grow">
                         <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Heide Küster Webseite</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
-                            Eine professionelle Website für systemische Beratung und Supervision mit klarem Design und intuitiver Benutzerführung.
+                            Eine professionelle Website für systemische Beratung und Supervision mit klarem Design und
+                            intuitiver Benutzerführung.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-2 py-1 text-xs rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">Svelte</span>
@@ -157,9 +164,11 @@
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen Portal</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen
+                            Portal</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
-                            Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem und Verwaltungsbereich.
+                            Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem
+                            und Verwaltungsbereich.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-2 py-1 text-xs rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">PHP</span>
@@ -179,9 +188,11 @@
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich Webseite</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich
+                            Webseite</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
-                            Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie, Video-Integration und responsivem Design.
+                            Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie,
+                            Video-Integration und responsivem Design.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-2 py-1 text-xs rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">Figma</span>
@@ -193,18 +204,19 @@
                 </div>
             </div>
 
-            <div class="mt-12 text-center">
-                <a href="#contact"
-                   class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg hover:shadow-[#ff6600]/20 transition-all duration-300">
-                    Mehr Projekte ansehen
-                </a>
-            </div>
+            <!--            <div class="mt-12 text-center">
+                            <a href="#contact"
+                               class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg hover:shadow-[#ff6600]/20 transition-all duration-300">
+                                Mehr Projekte ansehen
+                            </a>
+                        </div>-->
         </div>
     </section>
 
     <section id="contact" class="relative">
         <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black">
-            <p class="font-[ClashGrotesk-Medium] text-xl sm:text-2xl text-gray-600 px-4 text-center">Lust auf Zusammenarbeit?</p>
+            <p class="font-[ClashGrotesk-Medium] text-xl sm:text-2xl text-gray-600 px-4 text-center">Lust auf
+                Zusammenarbeit?</p>
             <h2 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center px-4 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight mb-4 sm:mb-0">
                 Lass uns in Kontakt treten!
             </h2>
@@ -240,6 +252,17 @@
                     GitHub
                 </a>
             </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="py-8 bg-white">
+        <div class="container mx-auto text-center text-gray-600 text-sm">
+            <div class="flex justify-center gap-4">
+                <a href="/impressum" class="hover:text-[#ff6600] transition-colors">Impressum</a>
+                <span>|</span>
+                <a href="/datenschutz" class="hover:text-[#ff6600] transition-colors">Datenschutz</a>
+            </div>
+            <p class="mt-2">© 2023 Fabian Thies. Alle Rechte vorbehalten.</p>
         </div>
     </section>
 </article>
