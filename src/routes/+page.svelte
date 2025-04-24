@@ -2,7 +2,7 @@
     import downArrow from '$lib/assets/images/down.svg';
     import Shader from "$lib/components/Shader.svelte";
     import {onMount} from "svelte";
-    import {animate, onScroll} from 'animejs';
+    import {animate, onScroll, stagger} from 'animejs';
 
     import heideKuester from '$lib/assets/images/portfolio/heide-kuester.jpg?enhanced';
     import davidBitterlich from '$lib/assets/images/portfolio/david-bitterlich.jpg?enhanced';
@@ -46,6 +46,19 @@
                 sync: 0.35,
             })
         });
+
+        animate('.project-card', {
+            opacity: [0, 1],
+            translateY: [50, 0],
+            duration: 300,
+            delay: stagger(150, {start: 0}),
+            ease: 'linear',
+            autoplay: onScroll({
+                target: '#portfolio',
+                enter: '80 -48',
+                leave: '50% 200%',
+            })
+        });
     });
 </script>
 
@@ -54,7 +67,7 @@
     <section id="home" class="min-h-screen flex items-center text-title dark:text-title-dark relative">
         <div id="background-layer" class="absolute inset-0 z-0"></div>
         <Shader/>
-        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative ">
             <div class="text-center md:text-left md:ml-10 lg:ml-20">
                 <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold max-w-6xl font-[ClashGrotesk-Bold]">
                     Ideen in
@@ -78,7 +91,7 @@
 
     <!-- About Section -->
     <section id="about"
-             class="min-h-screen flex items-center justify-center py-24 md:py-0 relative z-10 bg-white text-black">
+             class="min-h-screen flex items-center justify-center py-24 md:py-0 relative  bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <h2 class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">Über mich</h2>
@@ -118,7 +131,7 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio"
-             class="min-h-screen py-16 md:py-20 flex items-center justify-center relative z-10 bg-white text-black">
+             class="min-h-screen py-16 md:py-20 flex items-center justify-center relative bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16">
             <div class="text-center mb-10 md:mb-16">
                 <p class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">Meine Arbeit</p>
@@ -133,7 +146,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
@@ -155,17 +168,16 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                                <enhanced:img loading="lazy" src={gesundheitsreisen} alt="Project 1"/>
+                                <enhanced:img loading="lazy" src={gesundheitsreisen} alt="Project 2"/>
                             </span>
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen
-                            Portal</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen Portal</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
                             Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem
                             und Verwaltungsbereich.
@@ -179,17 +191,16 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
                     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                                <enhanced:img loading="lazy" src={davidBitterlich} alt="Project 1"/>
+                                <enhanced:img loading="lazy" src={davidBitterlich} alt="Project 3"/>
                             </span>
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich
-                            Webseite</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich Webseite</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
                             Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie,
                             Video-Integration und responsivem Design.
@@ -203,16 +214,10 @@
                     </div>
                 </div>
             </div>
-
-            <!--            <div class="mt-12 text-center">
-                            <a href="#contact"
-                               class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg hover:shadow-[#ff6600]/20 transition-all duration-300">
-                                Mehr Projekte ansehen
-                            </a>
-                        </div>-->
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="relative">
         <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black">
             <p class="font-[ClashGrotesk-Medium] text-xl sm:text-2xl text-gray-600 px-4 text-center">Lust auf

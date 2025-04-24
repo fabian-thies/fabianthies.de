@@ -111,7 +111,7 @@
             24955 Harrislee</p>
 
         <p>Telefon: +49 172 2175619<br/>
-            E-Mail: fabian.thies@gmx.de</p>
+            E-Mail: kontakt@fabianthies.de</p>
         <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen
             &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen,
             E-Mail-Adressen
