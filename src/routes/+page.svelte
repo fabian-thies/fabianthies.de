@@ -115,7 +115,7 @@
 </script>
 
 {#snippet gradientHeading(subtitle, title, description = '')}
-    <div class="text-center mb-10 md:mb-16">
+    <div class="mb-10 md:mb-16">
         <p class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">{subtitle}</p>
         <h2 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight">
             {title}
@@ -237,7 +237,7 @@
     <!-- Portfolio Section -->
     <section id="portfolio"
              class="min-h-screen py-16 md:py-20 flex items-center justify-center relative bg-white text-black">
-        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
             {@render gradientHeading(
                 'Meine Arbeit',
                 'Ausgewählte Projekte',
@@ -254,7 +254,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="relative">
-        <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black">
+        <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black text-center">
             {@render gradientHeading(
                 'Lust auf Zusammenarbeit?',
                 'Lass uns in Kontakt treten!'
