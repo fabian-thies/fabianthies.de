@@ -2,63 +2,59 @@
     import downArrow from '$lib/assets/images/down.svg';
     import Shader from "$lib/components/Shader.svelte";
     import {onMount} from "svelte";
-    import {animate, onScroll, stagger} from 'animejs';
+    import {gsap} from 'gsap';
+    import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
     import heideKuester from '$lib/assets/images/portfolio/heide-kuester.jpg?enhanced';
     import davidBitterlich from '$lib/assets/images/portfolio/david-bitterlich.jpg?enhanced';
     import gesundheitsreisen from '$lib/assets/images/portfolio/gesundheitsreisen.jpg?enhanced';
-    import edudigibook from '$lib/assets/images/portfolio/edudigibook.jpg?enhanced';
-    import foerdervereinMurnauer from '$lib/assets/images/portfolio/foerderverein-murnauer-gymnasium.jpg?enhanced';
-    import fsm from '$lib/assets/images/portfolio/fsm.jpg?enhanced';
 
     import TypeWriter from "$lib/components/TypeWriter.svelte";
 
     onMount(() => {
-        animate('#background-layer', {
-            backgroundColor: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
-            ease: 'linear',
-            autoplay: onScroll({
-                target: '#home',
-                enter: '40% 60%',
-                leave: '40% 100%',
-                sync: 0.35,
-            })
-        });
+        gsap.registerPlugin(ScrollTrigger);
 
-        animate('#about', {
-            backgroundColor: ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)'],
-            ease: 'linear',
-            autoplay: onScroll({
-                target: '#home',
-                enter: '40% 60%',
-                leave: '40% 100%',
-                sync: 0.35,
-            })
-        });
+        gsap.fromTo('#background-layer',
+            {backgroundColor: 'rgba(255, 255, 255, 0)'},
+            {
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#home',
+                    start: 'center center',
+                    end: 'bottom center',
+                    scrub: 0.35
+                }
+            }
+        );
 
-        animate(['.menu-text', '.menu-icon'], {
-            color: ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)'],
-            ease: 'linear',
-            autoplay: onScroll({
-                target: '#home',
-                enter: '30% 60%',
-                leave: '40% 100%',
-                sync: 0.35,
-            })
-        });
+        gsap.fromTo(['.menu-text', '.menu-icon'],
+            {color: 'rgba(255, 255, 255, 1)'},
+            {
+                color: 'rgba(0, 0, 0, 1)',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#home',
+                    start: 'center center',
+                    end: 'bottom center',
+                    scrub: 0.35
+                }
+            }
+        );
 
-        animate('.project-card', {
-            opacity: [0, 1],
-            translateY: [50, 0],
-            duration: 300,
-            delay: stagger(150, {start: 0}),
-            ease: 'linear',
-            autoplay: onScroll({
-                target: '#portfolio',
-                enter: '80 -48',
-                leave: '50% 200%',
-            })
-        });
+        gsap.fromTo('#about',
+            {opacity: 0},
+            {
+                opacity: 1,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#home',
+                    start: 'center center',
+                    end: 'bottom center',
+                    scrub: 0.35
+                }
+            }
+        );
     });
 </script>
 
@@ -177,7 +173,8 @@
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen Portal</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">Gesundheitsreisen
+                            Portal</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
                             Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem
                             und Verwaltungsbereich.
@@ -200,7 +197,8 @@
                         </div>
                     </div>
                     <div class="p-6 flex-grow">
-                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich Webseite</h3>
+                        <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">David Bitterlich
+                            Webseite</h3>
                         <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
                             Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie,
                             Video-Integration und responsivem Design.
