@@ -3,23 +3,13 @@
 </svelte:head>
 
 <script>
-    import {onMount} from "svelte";
-
-    onMount(() => {
-        const menuText = document.querySelectorAll('.menu-text');
-        const menuIcon = document.querySelectorAll('.menu-icon');
-
-        menuText.forEach((text) => {
-            text.classList.add('text-black');
-        });
-
-        menuIcon.forEach((text) => {
-            text.classList.add('text-black');
-        });
-    });
+    import MenuColorHandler from "$lib/components/MenuColorHandler.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 </script>
 
-<div class="bg-white h-screen">
+<MenuColorHandler />
+
+<div class="bg-white min-h-screen">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
         <h1>Impressum</h1>
 
@@ -73,3 +63,5 @@
             Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
     </div>
 </div>
+
+<Footer showYear={false} />

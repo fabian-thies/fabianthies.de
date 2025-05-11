@@ -10,6 +10,11 @@
     import gesundheitsreisen from '$lib/assets/images/portfolio/gesundheitsreisen.jpg?enhanced';
 
     import TypeWriter from "$lib/components/TypeWriter.svelte";
+    import GradientHeading from "$lib/components/GradientHeading.svelte";
+    import SkillTag from "$lib/components/SkillTag.svelte";
+    import ProjectCard from "$lib/components/ProjectCard.svelte";
+    import SocialLink from "$lib/components/SocialLink.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 
     const projects = [
         {
@@ -114,59 +119,6 @@
     });
 </script>
 
-{#snippet gradientHeading(subtitle, title, description = '')}
-    <div class="mb-10 md:mb-16">
-        <p class="font-[ClashGrotesk-Medium] text-xl md:text-2xl text-gray-600">{subtitle}</p>
-        <h2 class="font-[ClashGrotesk-Semibold] text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] bg-clip-text text-transparent leading-tight">
-            {title}
-        </h2>
-        {#if description}
-            <p class="font-[ClashGrotesk-Regular] text-base md:text-lg text-gray-800 max-w-3xl mx-auto mt-4 md:mt-6 px-2">
-                {description}
-            </p>
-        {/if}
-    </div>
-{/snippet}
-
-{#snippet skillTag(text, size = 'normal')}
-    {#if size === 'small'}
-        <span class="px-2 py-1 text-xs rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">{text}</span>
-    {:else}
-        <span class="px-4 py-2 rounded-full bg-[#ff6600]/10 text-[#ff6600] font-[ClashGrotesk-Medium]">{text}</span>
-    {/if}
-{/snippet}
-
-{#snippet projectCard(project)}
-    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full">
-        <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                    <enhanced:img loading="lazy" src={project.image} alt={project.title}/>
-                </span>
-            </div>
-        </div>
-        <div class="p-6 flex-grow">
-            <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">{project.title}</h3>
-            <p class="font-[ClashGrotesk-Regular] text-gray-700 mb-4">
-                {project.description}
-            </p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                {#each project.technologies as tech}
-                    {@render skillTag(tech, 'small')}
-                {/each}
-            </div>
-        </div>
-    </div>
-{/snippet}
-
-{#snippet socialLink(link)}
-    <a href={link.href} target={link.target}
-       class="flex gap-x-2 rounded-full border-2 border-[#ff6600]/40 px-2 py-1 hover:bg-[#ff6600]/10 transition-colors">
-        {@html link.icon}
-        {link.label}
-    </a>
-{/snippet}
-
 <article>
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center text-title dark:text-title-dark relative">
@@ -199,10 +151,10 @@
              class="min-h-screen flex items-center justify-center py-24 md:py-0 relative  bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
-                {@render gradientHeading(
-                    'Über mich',
-                    'Innovation durch Informatik'
-                )}
+                <GradientHeading
+                    subtitle="Über mich"
+                    title="Innovation durch Informatik"
+                />
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
                     Ich bin ein 22-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative
                     Technologien. Als Werkstudent im Bereich
@@ -216,11 +168,11 @@
                     Projekten mitzuwirken.
                 </p>
                 <div class="pt-4 flex flex-wrap gap-3">
-                    {@render skillTag('Web-Entwicklung')}
-                    {@render skillTag('CI/CD Automatisierung')}
-                    {@render skillTag('Docker')}
-                    {@render skillTag('Research & Development')}
-                    {@render skillTag('Innovation')}
+                    <SkillTag text="Web-Entwicklung" />
+                    <SkillTag text="CI/CD Automatisierung" />
+                    <SkillTag text="Docker" />
+                    <SkillTag text="Research & Development" />
+                    <SkillTag text="Innovation" />
                 </div>
             </div>
             <div class="w-full md:w-1/2 flex justify-center">
@@ -238,16 +190,23 @@
     <section id="portfolio"
              class="min-h-screen py-16 md:py-20 flex items-center justify-center relative bg-white text-black">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
-            {@render gradientHeading(
-                'Meine Arbeit',
-                'Ausgewählte Projekte',
-                'Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren.'
-            )}
+            <GradientHeading
+                subtitle="Meine Arbeit"
+                title="Ausgewählte Projekte"
+                description="Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren."
+            />
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {#each projects as project}
-                    {@render projectCard(project)}
+                    <ProjectCard {project} animated={false} />
                 {/each}
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/projekte"
+                   class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg transition-shadow">
+                    Alle Projekte anzeigen
+                </a>
             </div>
         </div>
     </section>
@@ -255,26 +214,17 @@
     <!-- Contact Section -->
     <section id="contact" class="relative">
         <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black text-center">
-            {@render gradientHeading(
-                'Lust auf Zusammenarbeit?',
-                'Lass uns in Kontakt treten!'
-            )}
+            <GradientHeading
+                subtitle="Lust auf Zusammenarbeit?"
+                title="Lass uns in Kontakt treten!"
+            />
             <div class="flex flex-row gap-x-2 md:gap-x-6 items-center mt-[14vh]">
                 {#each socialLinks as link}
-                    {@render socialLink(link)}
+                    <SocialLink {link} />
                 {/each}
             </div>
         </div>
     </section>
 
-    <section id="privacy" class="py-8 bg-white">
-        <div class="container mx-auto text-center text-gray-600 text-sm">
-            <div class="flex justify-center gap-4">
-                <a href="/impressum" class="hover:text-[#ff6600] transition-colors">Impressum</a>
-                <span>|</span>
-                <a href="/datenschutz" class="hover:text-[#ff6600] transition-colors">Datenschutz</a>
-            </div>
-            <p class="mt-2">© 2023 Fabian Thies. Alle Rechte vorbehalten.</p>
-        </div>
-    </section>
+    <Footer />
 </article>

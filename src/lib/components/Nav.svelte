@@ -81,6 +81,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="/projekte" on:click={toggleMenu}>
+                                Alle Projekte
+                            </a>
+                        </li>
+                        <li>
                             <a href="#contact" on:click={toggleMenu}>
                                 Kontakt
                             </a>

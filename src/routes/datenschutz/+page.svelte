@@ -3,23 +3,13 @@
 </svelte:head>
 
 <script>
-    import {onMount} from "svelte";
-
-    onMount(() => {
-        const menuText = document.querySelectorAll('.menu-text');
-        const menuIcon = document.querySelectorAll('.menu-icon');
-
-        menuText.forEach((text) => {
-            text.classList.add('text-black');
-        });
-
-        menuIcon.forEach((text) => {
-            text.classList.add('text-black');
-        });
-    });
+    import MenuColorHandler from "$lib/components/MenuColorHandler.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 </script>
 
-<div class="bg-white h-full">
+<MenuColorHandler />
+
+<div class="bg-white min-h-screen">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
         <h1>Datenschutz&shy;erkl&auml;rung</h1>
         <h2>1. Datenschutz auf einen Blick</h2>
@@ -287,3 +277,5 @@
         <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
     </div>
 </div>
+
+<Footer showYear={false} />
