@@ -35,12 +35,6 @@
             technologies: ["Wordpress", "Figma", "Custom Theme"]
         },
         {
-            image: foerdervereinMurnauer,
-            title: "Förderverein Murnauer Gymnasium",
-            description: "Eine moderne Website für den Förderverein mit klarer Struktur und einfacher Navigation.",
-            technologies: ["Wordpress"]
-        },
-        {
             image: fsm,
             title: "Fragen-Staunen-Mitmachen",
             description: "Die Lernplattform wurde gemeinsam mit Lehrern und Schülern entwickelt, für Einzel- und Gruppenarbeit auf mobilen Endgeräten optimiert und fördert interaktives Lernen. Die Website spiegelt die individuellen Vorgaben der Betreiber wider.",
