@@ -11,12 +11,15 @@
     export let animated: boolean = false;
 
     const Wrapper = project.href ? 'a' : 'div';
-
+    const wrapperProps = project.href
+        ? {href: project.href, target: '_blank', rel: 'noopener noreferrer'}
+        : {};
 </script>
 
 <svelte:element
         this={Wrapper}
         class="block h-full"
+        {...wrapperProps}
 >
     <div
             class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full"
