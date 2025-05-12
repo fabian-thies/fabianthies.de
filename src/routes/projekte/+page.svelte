@@ -51,7 +51,7 @@
 
 <article>
     <!-- Hero Section -->
-    <section class="min-h-[40vh] flex items-center text-black relative bg-white">
+    <section class="min-h-[40vh] flex items-center text-black relative bg-white pt-8 md:pt-0">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center py-16 md:py-24">
             <GradientHeading
                     description="Eine vollständige Übersicht meiner Projekte in den Bereichen Webentwicklung, Design und kreatives Programmieren."
