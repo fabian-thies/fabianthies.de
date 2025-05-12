@@ -71,17 +71,17 @@
                     <h3 class="text-xl font-light mb-5">Menü</h3>
                     <ul class="text-3xl font-medium space-y-5">
                         <li>
-                            <a href="#about" on:click={toggleMenu}>
+                            <a href="/#about" on:click={toggleMenu}>
                                 Über mich
                             </a>
                         </li>
                         <li>
-                            <a href="#portfolio" on:click={toggleMenu}>
+                            <a href="/#portfolio" on:click={toggleMenu}>
                                 Portfolio
                             </a>
                         </li>
                         <li>
-                            <a href="#contact" on:click={toggleMenu}>
+                            <a href="/#contact" on:click={toggleMenu}>
                                 Kontakt
                             </a>
                         </li>

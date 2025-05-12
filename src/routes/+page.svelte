@@ -1,7 +1,7 @@
 <script lang="ts">
     import downArrow from '$lib/assets/images/down.svg';
     import Shader from "$lib/components/Shader.svelte";
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import {gsap} from 'gsap';
     import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
@@ -116,7 +116,6 @@
                 }
             }
         );
-
         onDestroy(() => {
             scrollTriggers.forEach(st => st.kill());
             gsap.set(['.menu-text', '.menu-icon'], {clearProps: "color"});
