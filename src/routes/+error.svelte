@@ -35,16 +35,16 @@
         <div class="mt-6 md:mt-10">
             <h2 class="text-2xl sm:text-4xl md:text-5xl font-[ClashGrotesk-Medium] text-black">
                 <TypeWriter
-                        text={errorMessage}
-                        speed={50}
                         loop={false}
+                        speed={50}
+                        text={errorMessage}
                 />
             </h2>
         </div>
 
         <div class="mt-12 md:mt-16">
-            <a href="/"
-               class="px-6 py-3 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white rounded-md font-[ClashGrotesk-Medium] text-lg hover:opacity-90 transition-opacity">
+            <a class="px-6 py-3 bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white rounded-md font-[ClashGrotesk-Medium] text-lg hover:opacity-90 transition-opacity"
+               href="/">
                 Zurück zur Startseite
             </a>
         </div>

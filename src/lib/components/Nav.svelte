@@ -13,17 +13,17 @@
 <header class="p-8 flex w-full justify-between text-title dark:text-title-dark items-center z-50 fixed">
     <nav>
         <a href="/">
-            <img src={logo} alt="Site Logo">
+            <img alt="Site Logo" src={logo}>
         </a>
     </nav>
     <div class="text-2xl flex gap-2">
-        <button on:click={toggleMenu} class="flex flex-nowrap hover:cursor-pointer" aria-label="Menü öffnen">
+        <button aria-label="Menü öffnen" class="flex flex-nowrap hover:cursor-pointer" on:click={toggleMenu}>
             <span class="menu-text hidden sm:block">
                 menü
             </span>
-            <svg class="menu-icon pt-1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="menu-icon pt-1" fill="none" height="32" stroke="currentColor" stroke-linecap="round"
+                 stroke-linejoin="round"
+                 stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
                 <line x1="5" x2="19" y1="9" y2="9"></line>
                 <line x1="5" x2="19" y1="15" y2="15"></line>
             </svg>

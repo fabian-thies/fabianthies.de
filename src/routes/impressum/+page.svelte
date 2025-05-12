@@ -1,5 +1,5 @@
 <svelte:head>
-    <meta name="robots" content="noindex">
+    <meta content="noindex" name="robots">
 </svelte:head>
 
 <script>
@@ -7,7 +7,7 @@
     import Footer from "$lib/components/Footer.svelte";
 </script>
 
-<MenuColorHandler />
+<MenuColorHandler/>
 
 <div class="bg-white min-h-screen">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
@@ -59,9 +59,9 @@
 
         <h2>EU-Streitschlichtung</h2>
         <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
-                href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
+                href="https://ec.europa.eu/consumers/odr/" rel="noopener noreferrer" target="_blank">https://ec.europa.eu/consumers/odr/</a>.<br/>
             Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
     </div>
 </div>
 
-<Footer showYear={false} />
+<Footer showYear={false}/>

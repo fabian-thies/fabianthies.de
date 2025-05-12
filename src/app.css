@@ -6,14 +6,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: #fffbfa;
-  --color-background-dark: #000000;
+    --color-background: #fffbfa;
+    --color-background-dark: #000000;
 
-  --color-title: #0a0d12;
-  --color-title-dark: #fffbfa;
+    --color-title: #0a0d12;
+    --color-title-dark: #fffbfa;
 
-  --color-subtitle: #595959;
-  --color-subtitle-dark: #9ca3af;
+    --color-subtitle: #595959;
+    --color-subtitle-dark: #9ca3af;
 }
 
 /*
@@ -25,11 +25,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
 }

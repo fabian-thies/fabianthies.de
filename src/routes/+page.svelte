@@ -116,13 +116,20 @@
                 }
             }
         );
+
+        onDestroy(() => {
+            scrollTriggers.forEach(st => st.kill());
+            gsap.set(['.menu-text', '.menu-icon'], {clearProps: "color"});
+            gsap.set('#background-layer', {clearProps: "backgroundColor"});
+            gsap.set('#about', {clearProps: "opacity"});
+        });
     });
 </script>
 
 <article>
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center text-title dark:text-title-dark relative">
-        <div id="background-layer" class="absolute inset-0 z-0"></div>
+    <section class="min-h-screen flex items-center text-title dark:text-title-dark relative" id="home">
+        <div class="absolute inset-0 z-0" id="background-layer"></div>
         <Shader/>
         <div class="container mx-auto px-4 md:px-8 lg:px-16 relative ">
             <div class="text-center md:text-left md:ml-10 lg:ml-20">
@@ -135,25 +142,25 @@
                 </h1>
                 <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 mt-4 md:mt-10 font-[ClashGrotesk-light]">
                     <TypeWriter
-                            text="Wo Vorstellungskraft auf Innovation trifft."
+                            loop={true}
                             speed={50}
-                            loop={true}></TypeWriter>
+                            text="Wo Vorstellungskraft auf Innovation trifft."></TypeWriter>
                 </p>
             </div>
         </div>
         <div class="absolute bottom-6 md:bottom-10 left-0 right-0 flex justify-center">
-            <img src={downArrow} alt="down arrow" class="w-8 md:w-10 h-8 md:h-10 animate-bounce"/>
+            <img alt="down arrow" class="w-8 md:w-10 h-8 md:h-10 animate-bounce" src={downArrow}/>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about"
-             class="min-h-screen flex items-center justify-center py-24 md:py-0 relative  bg-white text-black">
+    <section class="min-h-screen flex items-center justify-center py-24 md:py-0 relative  bg-white text-black"
+             id="about">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <GradientHeading
-                    subtitle="Über mich"
-                    title="Innovation durch Informatik"
+                        subtitle="Über mich"
+                        title="Innovation durch Informatik"
                 />
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
                     Ich bin ein 22-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative
@@ -168,11 +175,11 @@
                     Projekten mitzuwirken.
                 </p>
                 <div class="pt-4 flex flex-wrap gap-3">
-                    <SkillTag text="Web-Entwicklung" />
-                    <SkillTag text="CI/CD Automatisierung" />
-                    <SkillTag text="Docker" />
-                    <SkillTag text="Research & Development" />
-                    <SkillTag text="Innovation" />
+                    <SkillTag text="Web-Entwicklung"/>
+                    <SkillTag text="CI/CD Automatisierung"/>
+                    <SkillTag text="Docker"/>
+                    <SkillTag text="Research & Development"/>
+                    <SkillTag text="Innovation"/>
                 </div>
             </div>
             <div class="w-full md:w-1/2 flex justify-center">
@@ -187,24 +194,24 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio"
-             class="min-h-screen py-16 md:py-20 flex items-center justify-center relative bg-white text-black">
+    <section class="min-h-screen py-16 md:py-20 flex items-center justify-center relative bg-white text-black"
+             id="portfolio">
         <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
             <GradientHeading
-                subtitle="Meine Arbeit"
-                title="Ausgewählte Projekte"
-                description="Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren."
+                    description="Eine Auswahl meiner neuesten Arbeiten in den Bereichen Webentwicklung, Design und kreatives Programmieren."
+                    subtitle="Meine Arbeit"
+                    title="Ausgewählte Projekte"
             />
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {#each projects as project}
-                    <ProjectCard {project} animated={false} />
+                    <ProjectCard {project} animated={false}/>
                 {/each}
             </div>
 
             <div class="mt-12 text-center">
-                <a href="/projekte"
-                   class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg transition-shadow">
+                <a class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ff2d00] via-[#ff6600] to-[#ff9e00] text-white font-[ClashGrotesk-Medium] hover:shadow-lg transition-shadow"
+                   href="/projekte">
                     Alle Projekte anzeigen
                 </a>
             </div>
@@ -212,19 +219,19 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="relative">
+    <section class="relative" id="contact">
         <div class="w-full min-h-[30rem] md:min-h-[40rem] py-16 md:py-0 flex flex-col justify-center items-center bg-white text-black text-center">
             <GradientHeading
-                subtitle="Lust auf Zusammenarbeit?"
-                title="Lass uns in Kontakt treten!"
+                    subtitle="Lust auf Zusammenarbeit?"
+                    title="Lass uns in Kontakt treten!"
             />
             <div class="flex flex-row gap-x-2 md:gap-x-6 items-center mt-[14vh]">
                 {#each socialLinks as link}
-                    <SocialLink {link} />
+                    <SocialLink {link}/>
                 {/each}
             </div>
         </div>
     </section>
 
-    <Footer />
+    <Footer/>
 </article>

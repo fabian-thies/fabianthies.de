@@ -6,7 +6,7 @@
         technologies: string[];
     };
     export let animated: boolean = false;
-    
+
     import SkillTag from './SkillTag.svelte';
 </script>
 
@@ -14,7 +14,7 @@
     <div class="h-48 overflow-hidden bg-gradient-to-br from-[#ff2d00]/10 via-[#ff6600]/10 to-[#ff9e00]/10 relative">
         <div class="absolute inset-0 flex items-center justify-center">
             <span class="font-[ClashGrotesk-Bold] text-4xl text-[#ff6600]/30">
-                <enhanced:img loading="lazy" src={project.image} alt={project.title}/>
+                <enhanced:img alt={project.title} loading="lazy" src={project.image}/>
             </span>
         </div>
     </div>
@@ -25,7 +25,7 @@
         </p>
         <div class="flex flex-wrap gap-2 mt-auto">
             {#each project.technologies as tech}
-                <SkillTag text={tech} size="small" />
+                <SkillTag text={tech} size="small"/>
             {/each}
         </div>
     </div>

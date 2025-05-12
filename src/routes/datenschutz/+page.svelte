@@ -1,5 +1,5 @@
 <svelte:head>
-    <meta name="robots" content="noindex">
+    <meta content="noindex" name="robots">
 </svelte:head>
 
 <script>
@@ -7,7 +7,7 @@
     import Footer from "$lib/components/Footer.svelte";
 </script>
 
-<MenuColorHandler />
+<MenuColorHandler/>
 
 <div class="bg-white min-h-screen">
     <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
@@ -278,4 +278,4 @@
     </div>
 </div>
 
-<Footer showYear={false} />
+<Footer showYear={false}/>
