@@ -2,6 +2,7 @@
     import logo from '$lib/assets/images/site-logo.svg';
     import {fly} from 'svelte/transition';
     import {quadInOut} from 'svelte/easing';
+    import { socialLinks } from '$lib/data/socialLinks';
 
     let showMenu = false;
 
@@ -55,16 +56,13 @@
                 <div transition:fly={{ x: -200, duration: 500, delay: 300 }}>
                     <h3 class="text-xl font-light mb-5">Soziale Medien</h3>
                     <ul class="text-2xl space-y-2">
-                        <li>
-                            <a href="https://www.linkedin.com/in/fabian-thies-63026331b/">
-                                LinkedIn
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/fabian-thies">
-                                Github
-                            </a>
-                        </li>
+                        {#each socialLinks as link}
+                            <li>
+                                <a href={link.href} target={link.target || '_self'}>
+                                    {link.label}
+                                </a>
+                            </li>
+                        {/each}
                     </ul>
                 </div>
                 <div transition:fly={{ y: -200, duration: 500, delay: 400 }}>

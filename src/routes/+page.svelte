@@ -5,10 +5,6 @@
     import {gsap} from 'gsap';
     import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
-    import heideKuester from '$lib/assets/images/portfolio/heide-kuester.jpg?enhanced';
-    import davidBitterlich from '$lib/assets/images/portfolio/david-bitterlich.jpg?enhanced';
-    import gesundheitsreisen from '$lib/assets/images/portfolio/gesundheitsreisen.jpg?enhanced';
-
     import TypeWriter from "$lib/components/TypeWriter.svelte";
     import GradientHeading from "$lib/components/GradientHeading.svelte";
     import SkillTag from "$lib/components/SkillTag.svelte";
@@ -16,64 +12,8 @@
     import SocialLink from "$lib/components/SocialLink.svelte";
     import Footer from "$lib/components/Footer.svelte";
 
-    const projects = [
-        {
-            image: heideKuester,
-            title: "Heide Küster Webseite",
-            description: "Eine professionelle Website für systemische Beratung und Supervision mit klarem Design und intuitiver Benutzerführung.",
-            technologies: ["Svelte", "TailwindCSS"],
-            href: "https://heidekuester.de/"
-        },
-        {
-            image: gesundheitsreisen,
-            title: "Gesundheitsreisen Portal",
-            description: "Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem und Verwaltungsbereich.",
-            technologies: ["PHP", "SQL", "CSS"],
-            href: "https://www.gesundheitreisen.de/"
-        },
-        {
-            image: davidBitterlich,
-            title: "David Bitterlich Webseite",
-            description: "Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie, Video-Integration und responsivem Design.",
-            technologies: ["Figma", "UI/UX", "Svelte", "TailwindCSS"],
-            href: "https://david-bitterlich-portfolio.vercel.app/"
-        }
-    ];
-
-    const socialLinks = [
-        {
-            href: "mailto:kontakt@fabianthies.de",
-            label: "E-Mail",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="text-[#ff6600]">
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg>`
-        },
-        {
-            href: "https://www.linkedin.com/in/fabian-thies-63026331b/",
-            label: "LinkedIn",
-            target: "_blank",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="text-[#ff6600]">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect width="4" height="12" x="2" y="9"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                </svg>`
-        },
-        {
-            href: "https://github.com/fabian-thies",
-            label: "GitHub",
-            target: "_blank",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="text-[#ff6600]">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>`
-        }
-    ];
+    import { featuredProjects } from '$lib/data/projects';
+    import { socialLinks } from '$lib/data/socialLinks';
 
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -177,11 +117,11 @@
                     Projekten mitzuwirken.
                 </p>
                 <div class="pt-4 flex flex-wrap gap-3">
-                    <SkillTag text="Web-Entwicklung"/>
-                    <SkillTag text="CI/CD Automatisierung"/>
-                    <SkillTag text="Docker"/>
-                    <SkillTag text="Research & Development"/>
-                    <SkillTag text="Innovation"/>
+                    <SkillTag text="Full-Stack-Entwicklung"/>
+                    <SkillTag text="DevOps & CI/CD"/>
+                    <SkillTag text="Backend- & API-Entwicklung"/>
+                    <SkillTag text="Datenbank-Management"/>
+                    <SkillTag text="App-Entwicklung"/>
                 </div>
             </div>
             <div class="w-full md:w-1/2 flex justify-center">
@@ -206,7 +146,7 @@
             />
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {#each projects as project}
+                {#each featuredProjects as project}
                     <ProjectCard {project} animated={false}/>
                 {/each}
             </div>
