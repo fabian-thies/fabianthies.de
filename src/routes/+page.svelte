@@ -21,19 +21,22 @@
             image: heideKuester,
             title: "Heide Küster Webseite",
             description: "Eine professionelle Website für systemische Beratung und Supervision mit klarem Design und intuitiver Benutzerführung.",
-            technologies: ["Svelte", "TailwindCSS"]
+            technologies: ["Svelte", "TailwindCSS"],
+            href: "https://heidekuester.de/"
         },
         {
             image: gesundheitsreisen,
             title: "Gesundheitsreisen Portal",
             description: "Eine dynamische Buchungsplattform für Gesundheitsreisen mit integriertem Reservierungssystem und Verwaltungsbereich.",
-            technologies: ["PHP", "SQL", "CSS"]
+            technologies: ["PHP", "SQL", "CSS"],
+            href: "https://www.gesundheitreisen.de/"
         },
         {
             image: davidBitterlich,
             title: "David Bitterlich Webseite",
             description: "Ein dynamisches Portfolio für einen professionellen Coloristen mit eleganter Bildergalerie, Video-Integration und responsivem Design.",
-            technologies: ["Figma", "UI/UX", "Svelte", "TailwindCSS"]
+            technologies: ["Figma", "UI/UX", "Svelte", "TailwindCSS"],
+            href: "https://david-bitterlich-portfolio.vercel.app/"
         }
     ];
 
