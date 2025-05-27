@@ -2,7 +2,6 @@ import heideKuester from '$lib/assets/images/portfolio/heide-kuester.jpg?enhance
 import davidBitterlich from '$lib/assets/images/portfolio/david-bitterlich.jpg?enhanced';
 import gesundheitsreisen from '$lib/assets/images/portfolio/gesundheitsreisen.jpg?enhanced';
 import edudigibook from '$lib/assets/images/portfolio/edudigibook.jpg?enhanced';
-import foerdervereinMurnauer from '$lib/assets/images/portfolio/foerderverein-murnauer-gymnasium.jpg?enhanced';
 import fsm from '$lib/assets/images/portfolio/fsm.jpg?enhanced';
 
 export const projects = [

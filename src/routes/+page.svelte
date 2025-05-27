@@ -12,8 +12,8 @@
     import SocialLink from "$lib/components/SocialLink.svelte";
     import Footer from "$lib/components/Footer.svelte";
 
-    import { featuredProjects } from '$lib/data/projects';
-    import { socialLinks } from '$lib/data/socialLinks';
+    import {featuredProjects} from '$lib/data/projects';
+    import {socialLinks} from '$lib/data/socialLinks';
 
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);

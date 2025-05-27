@@ -2,7 +2,7 @@
     import GradientHeading from "$lib/components/GradientHeading.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import Footer from "$lib/components/Footer.svelte";
-    import { projects } from '$lib/data/projects';
+    import {projects} from '$lib/data/projects';
 </script>
 
 <article>

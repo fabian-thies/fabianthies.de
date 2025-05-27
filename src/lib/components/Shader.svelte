@@ -1,172 +1,89 @@
 <script lang="ts">
-    import {onMount} from 'svelte';
+    import {onDestroy, onMount} from 'svelte';
+    import vertexSrc from '$lib/assets/glsl/shader.vert';
+    import fragmentSrc from '$lib/assets/glsl/shader.frag';
 
     let canvas: HTMLCanvasElement;
 
-    // Helper function to detect mobile devices
-    function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-            window.innerWidth < 768;
+    function createShader(gl: WebGLRenderingContext, type: number, src: string) {
+        const sh = gl.createShader(type)!;
+        gl.shaderSource(sh, src);
+        gl.compileShader(sh);
+        if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS))
+            throw new Error(String(gl.getShaderInfoLog(sh)));
+        return sh;
+    }
+
+    function createProgram(gl: WebGLRenderingContext, vsSrc: string, fsSrc: string) {
+        const vs = createShader(gl, gl.VERTEX_SHADER, vsSrc);
+        const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSrc);
+        const pr = gl.createProgram()!;
+        gl.attachShader(pr, vs);
+        gl.attachShader(pr, fs);
+        gl.linkProgram(pr);
+        if (!gl.getProgramParameter(pr, gl.LINK_STATUS))
+            throw new Error(String(gl.getProgramInfoLog(pr)));
+        return pr;
+    }
+
+    function createFullscreenQuad(gl: WebGLRenderingContext, loc: number) {
+        const buf = gl.createBuffer()!;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+            -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1
+        ]), gl.STATIC_DRAW);
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     }
 
     onMount(() => {
         const gl = canvas.getContext('webgl');
-        if (!gl) {
-            console.error('WebGL is not supported.');
-            return;
-        }
+        if (!gl) return;
 
-        // Detect if we're on a mobile device
-        const isMobile = isMobileDevice();
-
-        const vertexShaderSource = `
-      attribute vec2 a_position;
-      void main() {
-        gl_Position = vec4(a_position, 0.0, 1.0);
-      }
-    `;
-
-        // Choose between high quality (desktop) and optimized (mobile) shader
-        const fragmentShaderSource = `
-            precision highp float;
-            uniform vec2 iResolution;
-            uniform float iTime;
-
-            void mainImage (out vec4 o, vec2 fragCoord)
-            {
-                vec2 v = fragCoord;
-                o       = vec4(iResolution.xy, 0.0, 1.0);   // erst zuweisen
-                vec2 u  = (v + v - o.xy) / o.y;            // dann verwenden
-
-                u /= 0.5 + 0.2 * dot(u,u);
-                u += 0.2 * cos(iTime) - 7.56;
-
-                for (int i = 0; i < 3; ++i) {
-                    o[i] = 1.0 - exp(-6.0 / exp(6.0 * length(
-                              v + sin(5.0 * v.y - 3.0 * iTime) / 4.0)));
-                    v    = sin(1.5 * u.yx + 2.0 * cos(u -= 0.01));
-                }
-            }
-
-            void main() {
-            vec4 color;
-            mainImage(color, gl_FragCoord.xy);
-            gl_FragColor = color;
-            }
-        `;
-
-        function compileShader(source: string, type: number) {
-            const shader = gl.createShader(type);
-            if (!shader) return null;
-
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                console.error('Shader compile error:', gl.getShaderInfoLog(shader));
-                gl.deleteShader(shader);
-                return null;
-            }
-            return shader;
-        }
-
-        const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-        const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
-        if (!vertexShader || !fragmentShader) return;
-
-        const program = gl.createProgram();
-        if (!program) return;
-
-        gl.attachShader(program, vertexShader);
-        gl.attachShader(program, fragmentShader);
-        gl.linkProgram(program);
-        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            console.error('Program link error:', gl.getProgramInfoLog(program));
-            return;
-        }
+        const program = createProgram(gl, vertexSrc, fragmentSrc);
         gl.useProgram(program);
-
-        const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-
-        const positionBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        const positions = new Float32Array([
-            -1, -1,
-            1, -1,
-            -1, 1,
-            -1, 1,
-            1, -1,
-            1, 1,
-        ]);
-        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
-
-        gl.enableVertexAttribArray(positionAttributeLocation);
-        gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
-
-        const iResolutionLocation = gl.getUniformLocation(program, 'iResolution');
-        const iTimeLocation = gl.getUniformLocation(program, 'iTime');
+        const locPos = gl.getAttribLocation(program, 'a_position');
+        const locRes = gl.getUniformLocation(program, 'iResolution');
+        const locTime = gl.getUniformLocation(program, 'iTime');
+        createFullscreenQuad(gl, locPos);
 
         function resize() {
-            const displayWidth = window.innerWidth;
-            const displayHeight = window.innerHeight;
-
-            // Scale down resolution for mobile devices
-            const scaleFactor = isMobile ? 0.5 : 1.0; // 50% resolution for mobile
-
-            const targetWidth = Math.floor(displayWidth * scaleFactor);
-            const targetHeight = Math.floor(displayHeight * scaleFactor);
-
-            // Set canvas size to display size for proper rendering
-            canvas.width = targetWidth;
-            canvas.height = targetHeight;
-
-            // Set CSS size to full display size for proper layout
-            canvas.style.width = displayWidth + 'px';
-            canvas.style.height = displayHeight + 'px';
-
-            gl.viewport(0, 0, targetWidth, targetHeight);
+            const dpr = window.devicePixelRatio || 1;
+            const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+            const scale = mobile ? 0.5 : 1;
+            const w = Math.floor(window.innerWidth * dpr * scale);
+            const h = Math.floor(window.innerHeight * dpr * scale);
+            if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+                gl.viewport(0, 0, w, h);
+            }
         }
 
-        // Initialer Resize
         resize();
-
         window.addEventListener('resize', resize);
 
-        const startTime = Date.now();
-        let lastFrameTime = 0;
-        let animationFrameId: number;
+        const start = performance.now();
+        let running = true;
 
-        // Frame rate control
-        const targetFPS = isMobile ? 30 : 60; // Lower FPS for mobile
-        const frameInterval = 1000 / targetFPS;
-
-        function render(currentTimestamp: number) {
-            // Skip frames to achieve target FPS
-            const elapsed = currentTimestamp - lastFrameTime;
-
-            if (elapsed > frameInterval || !isMobile) { // Always render on desktop, limit on mobile
-                lastFrameTime = currentTimestamp;
-
-                const currentTime = Date.now();
-                const time = (currentTime - startTime) / 1000;
-
-                gl.uniform2f(iResolutionLocation, canvas.width, canvas.height);
-                gl.uniform1f(iTimeLocation, time);
-                gl.drawArrays(gl.TRIANGLES, 0, 6);
-            }
-
-            animationFrameId = requestAnimationFrame(render);
+        function frame(now: number) {
+            if (!running) return;
+            const t = (now - start) / 1000;
+            gl.uniform2f(locRes, canvas.width, canvas.height);
+            gl.uniform1f(locTime, t);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(frame);
         }
 
-        animationFrameId = requestAnimationFrame(render);
+        requestAnimationFrame(frame);
 
-        return () => {
+        onDestroy(() => {
+            running = false;
             window.removeEventListener('resize', resize);
-            // Cancel animation frame on cleanup to prevent memory leaks
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-            }
-        };
+        });
     });
 </script>
 
-<canvas bind:this={canvas} class="w-full h-screen opacity-30 fixed z-[-1]"></canvas>
+<canvas bind:this={canvas} class="fixed inset-0 w-screen h-screen opacity-30 -z-10"></canvas>

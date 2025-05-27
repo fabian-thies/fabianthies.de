@@ -2,7 +2,7 @@
     import logo from '$lib/assets/images/site-logo.svg';
     import {fly} from 'svelte/transition';
     import {quadInOut} from 'svelte/easing';
-    import { socialLinks } from '$lib/data/socialLinks';
+    import {socialLinks} from '$lib/data/socialLinks';
 
     let showMenu = false;
 

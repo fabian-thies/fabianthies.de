@@ -17,9 +17,9 @@
 </script>
 
 <svelte:element
-        this={Wrapper}
-        class="block h-full"
         {...wrapperProps}
+        class="block h-full"
+        this={Wrapper}
 >
     <div
             class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-[#ff6600]/10 hover:shadow-xl hover:border-[#ff6600]/30 transition-all duration-300 flex flex-col h-full"
