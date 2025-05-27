@@ -28,22 +28,24 @@
 
         // Choose between high quality (desktop) and optimized (mobile) shader
         const fragmentShaderSource = `
-            precision mediump float;
+            precision highp float;
             uniform vec2 iResolution;
             uniform float iTime;
 
-            // ShaderToy mainImage function adapted to standard GLSL.
-            void mainImage(out vec4 o, vec2 fragCoord) {
-            vec2 v = fragCoord;
-            vec2 u = (v + v - (o.xy = iResolution.xy)) / o.y;
-            u /= 0.5 + 0.2 * dot(u, u);
-            u += 0.2 * cos(iTime) - 7.56;
+            void mainImage (out vec4 o, vec2 fragCoord)
+            {
+                vec2 v = fragCoord;
+                o       = vec4(iResolution.xy, 0.0, 1.0);   // erst zuweisen
+                vec2 u  = (v + v - o.xy) / o.y;            // dann verwenden
 
-            // Loop over color channels.
-            for (int i = 0; i < 3; i++) {
-              o[i] = 1.0 - exp(-6.0 / exp(6.0 * length(v + sin(5.0 * v.y - 3.0 * iTime) / 4.0)));
-              v = sin(1.5 * u.yx + 2.0 * cos(u -= 0.01));
-            }
+                u /= 0.5 + 0.2 * dot(u,u);
+                u += 0.2 * cos(iTime) - 7.56;
+
+                for (int i = 0; i < 3; ++i) {
+                    o[i] = 1.0 - exp(-6.0 / exp(6.0 * length(
+                              v + sin(5.0 * v.y - 3.0 * iTime) / 4.0)));
+                    v    = sin(1.5 * u.yx + 2.0 * cos(u -= 0.01));
+                }
             }
 
             void main() {
