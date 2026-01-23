@@ -75,10 +75,10 @@
         <p>Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erf&uuml;llung seiner
             Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen.</p>
         <p>Wir setzen folgende(n) Hoster ein:</p>
-        <p>Vercel Inc.<br/>
-            340 S Lemon Ave #4133<br/>
-            Walnut, CA 91789<br/>
-            USA</p>
+        <p>Hetzner Online GmbH<br/>
+            Industriestr. 25<br/>
+            91710 Gunzenhausen<br/>
+            Deutschland</p>
         <h2>3. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
         <h3>Datenschutz</h3>
         <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen Daten sehr ernst. Wir behandeln Ihre
