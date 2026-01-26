@@ -15,6 +15,21 @@
     import {featuredProjects} from '$lib/data/projects';
     import {socialLinks} from '$lib/data/socialLinks';
 
+    const calculateAge = () => {
+        const birthDate = new Date(2002, 11);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+
+        if (monthDiff < 0) {
+            age--;
+        }
+
+        return age;
+    };
+
+    const age = calculateAge();
+
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +120,7 @@
                         title="Innovation durch Informatik"
                 />
                 <p class="font-[ClashGrotesk-Regular] text-lg text-gray-800 leading-relaxed">
-                    Ich bin ein 22-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative
+                    Ich bin ein {age}-jähriger Student der Angewandten Informatik mit einer Leidenschaft für innovative
                     Technologien. Als Werkstudent im Bereich
                     <span class="font-[ClashGrotesk-Medium] text-[#ff6600]">Research & Development</span> sammle ich
                     wertvolle
