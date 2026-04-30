@@ -32,7 +32,7 @@
         </span>
             </div>
         </div>
-        <div class="p-6 flex-grow">
+        <div class="p-6 flex-grow text-left">
             <h3 class="font-[ClashGrotesk-Semibold] text-2xl text-[#ff6600] mb-2">
                 {project.title}
             </h3>
