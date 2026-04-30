@@ -60,7 +60,7 @@
             }
         );
         onDestroy(() => {
-            scrollTriggers.forEach(st => st.kill());
+            ScrollTrigger.getAll().forEach((st) => st.kill());
             gsap.set(['.menu-text', '.menu-icon'], {clearProps: "color"});
             gsap.set('#background-layer', {clearProps: "backgroundColor"});
             gsap.set('#about', {clearProps: "opacity"});
@@ -167,7 +167,7 @@
                     subtitle="Lust auf Zusammenarbeit?"
                     title="Lass uns in Kontakt treten!"
             />
-            <div class="flex flex-row gap-x-2 md:gap-x-6 items-center mt-[14vh]">
+            <div class="flex flex-row gap-x-2 md:gap-x-6 items-center mt-10 md:mt-16">
                 {#each socialLinks as link}
                     <SocialLink {link}/>
                 {/each}

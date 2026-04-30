@@ -10,7 +10,7 @@
 <MenuColorHandler/>
 
 <div class="bg-white min-h-screen">
-    <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
+    <div class="sm:container pt-32 md:pt-36 prose mx-auto pb-20 md:pb-24 pl-5 pr-5">
         <h1>Impressum</h1>
 
         <p>Fabian Pascal Thies<br/>
