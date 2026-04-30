@@ -1,6 +1,6 @@
 /** @type {import('@sveltejs/kit').Handle} */
 export const handle = async ({event, resolve}) => {
-    return await resolve(event, {
+    const response = await resolve(event, {
         preload: ({type, path}) => {
             // Preload font files
             if (type === 'font' && path.includes('/fonts/')) {
@@ -12,4 +12,10 @@ export const handle = async ({event, resolve}) => {
             return false;
         }
     });
+
+    if (event.url.pathname === '/impressum' || event.url.pathname === '/datenschutz') {
+        response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+    }
+
+    return response;
 };

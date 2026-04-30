@@ -1,5 +1,6 @@
 <svelte:head>
-    <meta content="noindex" name="robots">
+    <title>Impressum | Fabian Thies</title>
+    <meta content="noindex, nofollow, noarchive" name="robots">
 </svelte:head>
 
 <script>
