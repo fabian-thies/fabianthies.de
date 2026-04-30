@@ -37,8 +37,10 @@
     }
 
     onMount(() => {
-        const gl = canvas.getContext('webgl');
-        if (!gl) return;
+        const context = canvas.getContext('webgl');
+        if (!context) return;
+
+        const gl: WebGLRenderingContext = context;
 
         const program = createProgram(gl, vertexSrc, fragmentSrc);
         gl.useProgram(program);

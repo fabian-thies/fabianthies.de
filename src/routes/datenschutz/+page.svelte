@@ -10,7 +10,7 @@
 <MenuColorHandler/>
 
 <div class="bg-white min-h-screen">
-    <div class="sm:container pt-44 prose mx-auto pb-28 pl-5 pr-5">
+    <div class="sm:container pt-32 md:pt-36 prose mx-auto pb-20 md:pb-24 pl-5 pr-5">
         <h1>Datenschutz&shy;erkl&auml;rung</h1>
         <h2>1. Datenschutz auf einen Blick</h2>
         <h3>Allgemeine Hinweise</h3>
