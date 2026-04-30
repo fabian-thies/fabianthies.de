@@ -43,6 +43,7 @@
         }
     };
     const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
+    const structuredDataTag = `<script type="application/ld+json">${structuredDataJson}<` + '/script>';
 </script>
 
 <svelte:head>
@@ -64,7 +65,7 @@
     <meta name="twitter:title" content={pageTitle}/>
     <meta name="twitter:description" content={pageDescription}/>
     <meta name="twitter:image" content={ogImageUrl}/>
-    <script type="application/ld+json">{@html structuredDataJson}</script>
+    {@html structuredDataTag}
 </svelte:head>
 
 <article>
