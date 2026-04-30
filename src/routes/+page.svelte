@@ -131,13 +131,13 @@
                     Anwendung. Mein Ziel ist es, mich stetig weiterzuentwickeln und an zukunftsweisenden, innovativen
                     Projekten mitzuwirken.
                 </p>
+                <!--
                 <div class="pt-4 flex flex-wrap gap-3">
                     <SkillTag text="Full-Stack-Entwicklung"/>
                     <SkillTag text="DevOps & CI/CD"/>
-                    <SkillTag text="Backend- & API-Entwicklung"/>
-                    <SkillTag text="Datenbank-Management"/>
                     <SkillTag text="App-Entwicklung"/>
                 </div>
+                -->
             </div>
             <div class="w-full md:w-1/2 flex justify-center">
                 <div class="relative w-80 h-80 rounded-2xl overflow-hidden border-4 border-[#ff6600]/20 shadow-xl">
